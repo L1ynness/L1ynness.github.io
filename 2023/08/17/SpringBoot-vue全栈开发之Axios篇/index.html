@@ -13,34 +13,37 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="http://example.com/2023/08/16/用git将项目上传至github/"/>
+    <link rel="canonical" href="http://example.com/2023/08/17/springboot-vue全栈开发之axios篇/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta name="description" content="一、克隆GitHub项目1.在本地创建一个空文件夹文件夹名字根据自身需要即可，右键点击Git Bash，输入命令 1git init  初始化本地仓库 2.克隆Github项目以本人的Github为例子展开实验 在刚刚初始化的文件夹里打开git bash，使用命令 1git clone yourSSH  其中 yourSSH 为你需要克隆的项目到SSH密钥  上图即为成功克隆到本地 二、修改项目代">
+        <meta name="description" content="一、Axios的使用1.1 Axios简介 1.2 发送网络请求1.2.1 发送Get请求 1.2.2 发送Post请求 1.2.3 异步回调问题 1.2.4 其他请求方式 1.3 跨域问题：前后端相连12@GetMapping(&quot;&#x2F;user&#x2F;findAll&quot;)public List&lt;User&gt; find()&amp;#123; return userMapper.sele">
 <meta property="og:type" content="article">
-<meta property="og:title" content="用Git将项目上传至Github">
-<meta property="og:url" content="http://example.com/2023/08/16/%E7%94%A8Git%E5%B0%86%E9%A1%B9%E7%9B%AE%E4%B8%8A%E4%BC%A0%E8%87%B3Github/index.html">
+<meta property="og:title" content="SpringBoot-vue全栈开发之Axios篇">
+<meta property="og:url" content="http://example.com/2023/08/17/SpringBoot-vue%E5%85%A8%E6%A0%88%E5%BC%80%E5%8F%91%E4%B9%8BAxios%E7%AF%87/index.html">
 <meta property="og:site_name" content="轻舟已过万重山">
-<meta property="og:description" content="一、克隆GitHub项目1.在本地创建一个空文件夹文件夹名字根据自身需要即可，右键点击Git Bash，输入命令 1git init  初始化本地仓库 2.克隆Github项目以本人的Github为例子展开实验 在刚刚初始化的文件夹里打开git bash，使用命令 1git clone yourSSH  其中 yourSSH 为你需要克隆的项目到SSH密钥  上图即为成功克隆到本地 二、修改项目代">
+<meta property="og:description" content="一、Axios的使用1.1 Axios简介 1.2 发送网络请求1.2.1 发送Get请求 1.2.2 发送Post请求 1.2.3 异步回调问题 1.2.4 其他请求方式 1.3 跨域问题：前后端相连12@GetMapping(&quot;&#x2F;user&#x2F;findAll&quot;)public List&lt;User&gt; find()&amp;#123; return userMapper.sele">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/pic/%E5%85%8B%E9%9A%86%E5%88%B0%E6%9C%AC%E5%9C%B0.png">
-<meta property="og:image" content="http://example.com/pic/%E8%BF%9B%E5%85%A5%E5%88%B0%E4%BF%AE%E6%94%B9%E7%9B%AE%E5%BD%95.png">
-<meta property="og:image" content="http://example.com/pic/%E8%BF%9B%E5%85%A5%E5%88%B0%E7%BC%96%E8%BE%91%E5%99%A8.png">
-<meta property="og:image" content="http://example.com/pic/%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9.png">
-<meta property="og:image" content="http://example.com/pic/%E4%BF%9D%E5%AD%98%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9.png">
-<meta property="og:image" content="http://example.com/pic/%E4%B8%8A%E4%BC%A0%E5%88%B0%E6%9A%82%E5%AD%98%E5%8C%BA.png">
-<meta property="og:image" content="http://example.com/pic/%E6%B7%BB%E5%8A%A0%E5%88%B0%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93.png">
-<meta property="og:image" content="http://example.com/pic/%E4%B8%8A%E4%BC%A0%E5%88%B0GitHub.png">
-<meta property="og:image" content="http://example.com/pic/%E6%A3%80%E6%9F%A5%E6%98%AF%E5%90%A6%E4%BF%AE%E6%94%B9.png">
-<meta property="article:published_time" content="2023-08-16T06:34:54.000Z">
-<meta property="article:modified_time" content="2023-08-16T11:27:50.869Z">
+<meta property="og:image" content="http://example.com/pic/axios%E7%AE%80%E4%BB%8B.png">
+<meta property="og:image" content="http://example.com/pic/%E5%8F%91%E9%80%81%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82.png">
+<meta property="og:image" content="http://example.com/pic/%E5%8F%91%E9%80%81post%E8%AF%B7%E6%B1%82.png">
+<meta property="og:image" content="http://example.com/pic/%E5%BC%82%E6%AD%A5%E5%9B%9E%E8%B0%83%E9%97%AE%E9%A2%98.png">
+<meta property="og:image" content="http://example.com/pic/%E5%85%B6%E4%BB%96%E8%AF%B7%E6%B1%82.png">
+<meta property="og:image" content="http://example.com/pic/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%87%BA%E7%8E%B0%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98.png">
+<meta property="og:image" content="http://example.com/pic/%E8%B7%A8%E5%9F%9F%E7%9A%84%E8%A7%A3%E5%86%B3.png">
+<meta property="og:image" content="http://example.com/pic/%E7%AE%80%E5%8D%95%E8%AF%B7%E6%B1%82%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%A4%84%E7%90%86.png">
+<meta property="og:image" content="http://example.com/pic/%E9%9D%9E%E7%AE%80%E5%8D%95%E8%AF%B7%E6%B1%82.png">
+<meta property="og:image" content="http://example.com/pic/%E9%9D%9E%E7%AE%80%E5%8D%95%E8%AF%B7%E6%B1%822.png">
+<meta property="og:image" content="http://example.com/pic/%E4%B8%8Evue%E6%95%B4%E5%90%88.png">
+<meta property="article:published_time" content="2023-08-17T13:30:29.000Z">
+<meta property="article:modified_time" content="2023-08-17T14:33:34.134Z">
 <meta property="article:author" content="Lynn">
 <meta property="article:tag" content="开发">
 <meta property="article:tag" content="学习">
+<meta property="article:tag" content="全栈开发">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/pic/%E5%85%8B%E9%9A%86%E5%88%B0%E6%9C%AC%E5%9C%B0.png">
+<meta name="twitter:image" content="http://example.com/pic/axios%E7%AE%80%E4%BB%8B.png">
     
     
     <!--- Icon Part-->
@@ -52,7 +55,7 @@
     
     <title>
         
-            用Git将项目上传至Github -
+            SpringBoot-vue全栈开发之Axios篇 -
         
         A Lazy Dog的博客
     </title>
@@ -318,7 +321,7 @@
 
         <div class="article-title">
             
-                <h1 class="article-title-regular">用Git将项目上传至Github</h1>
+                <h1 class="article-title-regular">SpringBoot-vue全栈开发之Axios篇</h1>
             
             </div>
             
@@ -340,15 +343,15 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fa-regular fa-pen-fancy"></i>&nbsp;
-        <span class="desktop">2023-08-16 14:34:54</span>
-        <span class="mobile">2023-08-16 14:34:54</span>
+        <span class="desktop">2023-08-17 21:30:29</span>
+        <span class="mobile">2023-08-17 21:30:29</span>
         <span class="hover-info">创建</span>
     </span>
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2023-08-16 19:27:50</span>
-            <span class="mobile">2023-08-16 19:27:50</span>
+            <span class="desktop">2023-08-17 22:33:34</span>
+            <span class="mobile">2023-08-17 22:33:34</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -365,6 +368,10 @@
                 
                     <li>
                         | <a href="/tags/%E5%AD%A6%E4%B9%A0/">学习</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E5%85%A8%E6%A0%88%E5%BC%80%E5%8F%91/">全栈开发</a>&nbsp;
                     </li>
                 
             </ul>
@@ -387,50 +394,34 @@
         
 
         <div class="article-content markdown-body">
-            <h1 id="一、克隆GitHub项目"><a href="#一、克隆GitHub项目" class="headerlink" title="一、克隆GitHub项目"></a>一、克隆GitHub项目</h1><h2 id="1-在本地创建一个空文件夹"><a href="#1-在本地创建一个空文件夹" class="headerlink" title="1.在本地创建一个空文件夹"></a>1.<strong>在本地创建一个空文件夹</strong></h2><p>文件夹名字根据自身需要即可，右键点击Git Bash，输入命令</p>
-<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure></div>
+            <h1 id="一、Axios的使用"><a href="#一、Axios的使用" class="headerlink" title="一、Axios的使用"></a>一、Axios的使用</h1><h2 id="1-1-Axios简介"><a href="#1-1-Axios简介" class="headerlink" title="1.1 Axios简介"></a>1.1 Axios简介</h2><p><img lazyload src="/images/loading.svg" data-src="/../pic/axios%E7%AE%80%E4%BB%8B.png"></p>
+<h2 id="1-2-发送网络请求"><a href="#1-2-发送网络请求" class="headerlink" title="1.2 发送网络请求"></a>1.2 发送网络请求</h2><h3 id="1-2-1-发送Get请求"><a href="#1-2-1-发送Get请求" class="headerlink" title="1.2.1 发送Get请求"></a>1.2.1 发送Get请求</h3><p><img lazyload src="/images/loading.svg" data-src="/../pic/%E5%8F%91%E9%80%81%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82.png"></p>
+<h3 id="1-2-2-发送Post请求"><a href="#1-2-2-发送Post请求" class="headerlink" title="1.2.2 发送Post请求"></a>1.2.2 发送Post请求</h3><p><img lazyload src="/images/loading.svg" data-src="/../pic/%E5%8F%91%E9%80%81post%E8%AF%B7%E6%B1%82.png"></p>
+<h3 id="1-2-3-异步回调问题"><a href="#1-2-3-异步回调问题" class="headerlink" title="1.2.3 异步回调问题"></a>1.2.3 异步回调问题</h3><p><img lazyload src="/images/loading.svg" data-src="/../pic/%E5%BC%82%E6%AD%A5%E5%9B%9E%E8%B0%83%E9%97%AE%E9%A2%98.png"></p>
+<h3 id="1-2-4-其他请求方式"><a href="#1-2-4-其他请求方式" class="headerlink" title="1.2.4 其他请求方式"></a>1.2.4 其他请求方式</h3><p><img lazyload src="/images/loading.svg" data-src="/../pic/%E5%85%B6%E4%BB%96%E8%AF%B7%E6%B1%82.png"></p>
+<h2 id="1-3-跨域问题：前后端相连"><a href="#1-3-跨域问题：前后端相连" class="headerlink" title="1.3 跨域问题：前后端相连"></a>1.3 跨域问题：前后端相连</h2><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GetMapping(&quot;/user/findAll&quot;)</span></span><br><span class="line"><span class="keyword">public</span> List&lt;User&gt; <span class="title function_">find</span><span class="params">()</span>&#123; <span class="keyword">return</span> userMapper.selectAllUserAndOrders(); &#125;</span><br></pre></td></tr></table></figure></div>
 
-<p>初始化本地仓库</p>
-<h2 id="2-克隆Github项目"><a href="#2-克隆Github项目" class="headerlink" title="2.克隆Github项目"></a><strong>2.克隆Github项目</strong></h2><p>以本人的Github为例子展开实验</p>
-<p>在刚刚初始化的文件夹里打开git bash，使用命令</p>
-<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone yourSSH</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Html"><figure class="iseeu highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">created:function()&#123;</span><br><span class="line">	axios.get(&quot;http://localhost:8088/user/findAll&quot;).then(function(reponse)&#123;</span><br><span class="line">		console.log(reponse)</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 
-<p>其中 yourSSH 为你需要克隆的项目到SSH密钥</p>
-<p><img lazyload src="/images/loading.svg" data-src="/../../pic/%E5%85%8B%E9%9A%86%E5%88%B0%E6%9C%AC%E5%9C%B0.png"></p>
-<p>上图即为成功克隆到本地</p>
-<h1 id="二、修改项目代码"><a href="#二、修改项目代码" class="headerlink" title="二、修改项目代码"></a><strong>二、修改项目代码</strong></h1><h2 id="1-进入到相关目录"><a href="#1-进入到相关目录" class="headerlink" title="1.进入到相关目录"></a><strong>1.进入到相关目录</strong></h2><p>使用命令</p>
-<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd filename</span><br></pre></td></tr></table></figure></div>
+<blockquote>
+<p><strong>注意</strong>：后端端口不能与前端端口一致！！！</p>
+</blockquote>
+<h3 id="1-3-1-为什么出现跨域问题"><a href="#1-3-1-为什么出现跨域问题" class="headerlink" title="1.3.1 为什么出现跨域问题"></a>1.3.1 为什么出现跨域问题</h3><p><img lazyload src="/images/loading.svg" data-src="/../pic/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%87%BA%E7%8E%B0%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98.png"></p>
+<h3 id="1-3-2-跨域的解决"><a href="#1-3-2-跨域的解决" class="headerlink" title="1.3.2 跨域的解决"></a>1.3.2 跨域的解决</h3><p><img lazyload src="/images/loading.svg" data-src="/../pic/%E8%B7%A8%E5%9F%9F%E7%9A%84%E8%A7%A3%E5%86%B3.png"></p>
+<h3 id="1-3-3-简单请求的服务器处理"><a href="#1-3-3-简单请求的服务器处理" class="headerlink" title="1.3.3 简单请求的服务器处理"></a>1.3.3 简单请求的服务器处理</h3><p><img lazyload src="/images/loading.svg" data-src="/../pic/%E7%AE%80%E5%8D%95%E8%AF%B7%E6%B1%82%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%A4%84%E7%90%86.png"></p>
+<h3 id="1-3-4-非简单请求"><a href="#1-3-4-非简单请求" class="headerlink" title="1.3.4 非简单请求"></a>1.3.4 非简单请求</h3><p><img lazyload src="/images/loading.svg" data-src="/../pic/%E9%9D%9E%E7%AE%80%E5%8D%95%E8%AF%B7%E6%B1%82.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="/../pic/%E9%9D%9E%E7%AE%80%E5%8D%95%E8%AF%B7%E6%B1%822.png"></p>
+<h3 id="1-3-5-SpringBoot的中配置CORS"><a href="#1-3-5-SpringBoot的中配置CORS" class="headerlink" title="1.3.5 SpringBoot的中配置CORS"></a>1.3.5 SpringBoot的中配置CORS</h3><p>在传统的Java EE开发中，可以通过过滤器统一配置，而SpringBoot中对此则提供了更加简便的方案。</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CorsConfig</span> <span class="keyword">implements</span> <span class="title class_">WebMvcConfigurer</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">addCorsMappings</span><span class="params">(CorsRegistry registry)</span>&#123;</span><br><span class="line">        registry.addMapping(<span class="string">&quot;/**&quot;</span>)    <span class="comment">//允许跨域访问的路径</span></span><br><span class="line">                .allowedOrigins(<span class="string">&quot;*&quot;</span>)        <span class="comment">// 允许跨域访问的源</span></span><br><span class="line">                .allowedMethods(<span class="string">&quot;POST&quot;</span>,<span class="string">&quot;GET&quot;</span>,<span class="string">&quot;PUT&quot;</span>,<span class="string">&quot;OPTIONS&quot;</span>,<span class="string">&quot;DELETE&quot;</span>)  <span class="comment">//运行请求方法</span></span><br><span class="line">                .maxAge(<span class="number">168000</span>)           <span class="comment">//预检间隔时间</span></span><br><span class="line">                .allowedHeaders(<span class="string">&quot;*&quot;</span>)      <span class="comment">//允许头部设置</span></span><br><span class="line">                .allowCredentials(<span class="literal">true</span>);   <span class="comment">//是否发送cookie</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 
-<p>进入到需要修改的目录下</p>
-<p><img lazyload src="/images/loading.svg" data-src="/../../pic/%E8%BF%9B%E5%85%A5%E5%88%B0%E4%BF%AE%E6%94%B9%E7%9B%AE%E5%BD%95.png"></p>
-<p>上图为进入到需要修改文件的目录</p>
-<h2 id="2-修改文件"><a href="#2-修改文件" class="headerlink" title="2.修改文件"></a><strong>2.修改文件</strong></h2><h3 id="①Vim命令"><a href="#①Vim命令" class="headerlink" title="①Vim命令"></a>①Vim命令</h3><p>使用命令</p>
-<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim 文件命令</span><br></pre></td></tr></table></figure></div>
+<p>在一个类前加上注解**@CrossOrigin<strong>，可以使这个类的所有方法</strong>都允许跨域**</p>
+<h3 id="1-3-6-后端数据显示在表格（打通前后端连接）"><a href="#1-3-6-后端数据显示在表格（打通前后端连接）" class="headerlink" title="1.3.6 后端数据显示在表格（打通前后端连接）"></a>1.3.6 后端数据显示在表格（打通前后端连接）</h3><div class="highlight-container" data-rel="Html"><figure class="iseeu highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">el-table</span> <span class="attr">:data</span>=<span class="string">&quot;tableData&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width: 100%&quot;</span> <span class="attr">:row-class-name</span>=<span class="string">&quot;tableRowClassName&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">el-table-column</span> <span class="attr">prop</span>=<span class="string">&quot;id&quot;</span> <span class="attr">label</span>=<span class="string">&quot;编号&quot;</span> <span class="attr">width</span>=<span class="string">&quot;180&gt;&lt;/el-table-column&gt;</span></span></span><br><span class="line"><span class="string"><span class="tag">    &lt;el-table-column prop=&quot;</span><span class="attr">name</span>&quot; <span class="attr">label</span>=<span class="string">&quot;姓名&quot;</span> <span class="attr">width</span>=<span class="string">&quot;180&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">el-table-column</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">el-table-column</span> <span class="attr">prop</span>=<span class="string">&quot;birthday&quot;</span> <span class="attr">label</span>=<span class="string">&quot;生日&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">el-table-column</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">el-table</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="attr">created</span>:<span class="keyword">function</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">//作用域继承父集</span></span></span><br><span class="line"><span class="language-javascript">	axios.<span class="title function_">get</span>(<span class="string">&quot;http://localhost:8088/user/findAll&quot;</span>).<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params">reponse</span>)=&gt;</span></span><br><span class="line"><span class="language-javascript">    &#123;</span></span><br><span class="line"><span class="language-javascript">		<span class="variable language_">this</span>.<span class="property">tableData</span> = reponse.<span class="property">data</span></span></span><br><span class="line"><span class="language-javascript">	&#125;)</span></span><br><span class="line"><span class="language-javascript">&#125;</span></span><br><span class="line"><span class="language-javascript"><span class="title function_">data</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">	<span class="keyword">return</span>&#123;</span></span><br><span class="line"><span class="language-javascript">		<span class="attr">tableData</span>:[]</span></span><br><span class="line"><span class="language-javascript">	&#125;	</span></span><br><span class="line"><span class="language-javascript">&#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
 
-<p>进入到编辑器</p>
-<p><img lazyload src="/images/loading.svg" data-src="/../../pic/%E8%BF%9B%E5%85%A5%E5%88%B0%E7%BC%96%E8%BE%91%E5%99%A8.png"></p>
-<p>上两图分别为命令以及编辑状态</p>
-<h3 id="②修改文件内容"><a href="#②修改文件内容" class="headerlink" title="②修改文件内容"></a>②修改文件内容</h3><p>本次以添加注释为例</p>
-<p>点击键盘i或者insert健即可进入修改模式(左下角显示<strong>insert</strong>即可)，如下图:</p>
-<p><img lazyload src="/images/loading.svg" data-src="/../../pic/%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9.png"></p>
-<p>修改完毕之后，按住esc健，退出编辑，左下角输入”:wq”退出编辑并且保存</p>
-<p><img lazyload src="/images/loading.svg" data-src="/../../pic/%E4%BF%9D%E5%AD%98%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9.png"></p>
-<h1 id="三、上传项目代码至GitHub"><a href="#三、上传项目代码至GitHub" class="headerlink" title="三、上传项目代码至GitHub"></a>三、上传项目代码至GitHub</h1><h2 id="1-将文件上传到暂存区"><a href="#1-将文件上传到暂存区" class="headerlink" title="1.将文件上传到暂存区"></a><strong>1.将文件上传到暂存区</strong></h2><p>使用命令</p>
-<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure></div>
+<h1 id="二、与Vue整合"><a href="#二、与Vue整合" class="headerlink" title="二、与Vue整合"></a>二、与Vue整合</h1><p><img lazyload src="/images/loading.svg" data-src="/../pic/%E4%B8%8Evue%E6%95%B4%E5%90%88.png"></p>
+<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">axios.<span class="property">defaults</span>.<span class="property">baseURL</span> = <span class="string">&quot;http://localhost:8080&quot;</span></span><br><span class="line"><span class="title class_">Vue</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">$http</span> = axios</span><br></pre></td></tr></table></figure></div>
 
-<p>将所有文件上传至暂存区</p>
-<p><img lazyload src="/images/loading.svg" data-src="/../../pic/%E4%B8%8A%E4%BC%A0%E5%88%B0%E6%9A%82%E5%AD%98%E5%8C%BA.png"></p>
-<h2 id="2-将暂存区文件添加到本地仓库"><a href="#2-将暂存区文件添加到本地仓库" class="headerlink" title="2.将暂存区文件添加到本地仓库"></a><strong>2.将暂存区文件添加到本地仓库</strong></h2><p>使用命令</p>
-<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m “注释”</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">created</span>:<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">	axios.<span class="title function_">get</span>(<span class="string">&quot;http://localhost:8088/user/findAll&quot;</span>).<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params">reponse</span>)=&gt;</span><br><span class="line">    &#123;</span><br><span class="line">		<span class="variable language_">this</span>.<span class="property">tableData</span> = reponse.<span class="property">data</span></span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//经过上述配置可以将上述代码写成如下形式</span></span><br><span class="line"><span class="attr">created</span>:<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">	axios.<span class="property">$http</span>.<span class="title function_">get</span>(<span class="string">&quot;/user/findAll&quot;</span>).<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params">reponse</span>)=&gt;</span><br><span class="line">    &#123;</span><br><span class="line">		<span class="variable language_">this</span>.<span class="property">tableData</span> = reponse.<span class="property">data</span></span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 
-<p><img lazyload src="/images/loading.svg" data-src="/../../pic/%E6%B7%BB%E5%8A%A0%E5%88%B0%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93.png"></p>
-<h2 id="3-将文件上传至GitHub"><a href="#3-将文件上传至GitHub" class="headerlink" title="3.将文件上传至GitHub"></a>3.将文件上传至GitHub</h2><p>使用命令</p>
-<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin master</span><br></pre></td></tr></table></figure></div>
-
-<p>将文件上传至GitHub</p>
-<p><img lazyload src="/images/loading.svg" data-src="/../../pic/%E4%B8%8A%E4%BC%A0%E5%88%B0GitHub.png"></p>
-<h2 id="4-查看GitHub文件是否修改"><a href="#4-查看GitHub文件是否修改" class="headerlink" title="4.查看GitHub文件是否修改"></a>4.查看GitHub文件是否修改</h2><p><img lazyload src="/images/loading.svg" data-src="/../../pic/%E6%A3%80%E6%9F%A5%E6%98%AF%E5%90%A6%E4%BF%AE%E6%94%B9.png"></p>
-<p>修改成功！！</p>
 
         </div>
 
@@ -438,16 +429,16 @@
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul>
-        <li><strong>标题:</strong> 用Git将项目上传至Github</li>
+        <li><strong>标题:</strong> SpringBoot-vue全栈开发之Axios篇</li>
         <li><strong>作者:</strong> Lynn</li>
-        <li><strong>创建于:</strong> 2023-08-16 14:34:54</li>
+        <li><strong>创建于:</strong> 2023-08-17 21:30:29</li>
         
             <li>
-                <strong>更新于:</strong> 2023-08-16 19:27:50
+                <strong>更新于:</strong> 2023-08-17 22:33:34
             </li>
         
         <li>
-            <strong>链接:</strong> https://redefine.ohevan.com/2023/08/16/用Git将项目上传至Github/
+            <strong>链接:</strong> https://redefine.ohevan.com/2023/08/17/SpringBoot-vue全栈开发之Axios篇/
         </li>
         <li>
             <strong>版权声明:</strong> 本文章采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a> 进行许可。
@@ -469,6 +460,10 @@
                         <a href="/tags/%E5%AD%A6%E4%B9%A0/">#学习</a>&nbsp;
                     </li>
                 
+                    <li class="tag-item">
+                        <a href="/tags/%E5%85%A8%E6%A0%88%E5%BC%80%E5%8F%91/">#全栈开发</a>&nbsp;
+                    </li>
+                
             </ul>
         
 
@@ -480,13 +475,13 @@
                     <div class="article-prev">
                         <a class="prev"
                         rel="prev"
-                        href="/2023/08/16/Springboot-vue%E5%85%A8%E6%A0%88%E5%BC%80%E5%8F%91/"
+                        href="/2023/08/17/SpringBoot-vue%E5%85%A8%E6%A0%88%E5%BC%80%E5%8F%91%E4%B9%8BVueRouter%E7%AF%87/"
                         >
                             <span class="left arrow-icon flex-center">
                                 <i class="fa-solid fa-chevron-left"></i>
                             </span>
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">Springboot+vue全栈开发之SpringBoot篇</span>
+                                <span class="post-nav-title-item">SpringBoot-vue全栈开发之VueRouter篇</span>
                                 <span class="post-nav-item">上一篇</span>
                             </span>
                         </a>
@@ -496,10 +491,10 @@
                     <div class="article-next">
                         <a class="next"
                         rel="next"
-                        href="/2023/08/15/hello-world/"
+                        href="/2023/08/17/SpringBoot-vue%E5%85%A8%E6%A0%88%E5%BC%80%E5%8F%91%E4%B9%8BVue%E6%A1%86%E6%9E%B6%E7%AF%87/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">Hello World</span>
+                                <span class="post-nav-title-item">SpringBoot-vue全栈开发之Vue框架篇</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -564,8 +559,8 @@
             <div class="post-toc-wrap">
     <div class="post-toc">
         <div class="toc-title">此页目录</div>
-        <div class="page-title">用Git将项目上传至Github</div>
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%85%8B%E9%9A%86GitHub%E9%A1%B9%E7%9B%AE"><span class="nav-number">1.</span> <span class="nav-text">一、克隆GitHub项目</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%9C%A8%E6%9C%AC%E5%9C%B0%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%A9%BA%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="nav-number">1.1.</span> <span class="nav-text">1.在本地创建一个空文件夹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%85%8B%E9%9A%86Github%E9%A1%B9%E7%9B%AE"><span class="nav-number">1.2.</span> <span class="nav-text">2.克隆Github项目</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E4%BF%AE%E6%94%B9%E9%A1%B9%E7%9B%AE%E4%BB%A3%E7%A0%81"><span class="nav-number">2.</span> <span class="nav-text">二、修改项目代码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E8%BF%9B%E5%85%A5%E5%88%B0%E7%9B%B8%E5%85%B3%E7%9B%AE%E5%BD%95"><span class="nav-number">2.1.</span> <span class="nav-text">1.进入到相关目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6"><span class="nav-number">2.2.</span> <span class="nav-text">2.修改文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%91%A0Vim%E5%91%BD%E4%BB%A4"><span class="nav-number">2.2.1.</span> <span class="nav-text">①Vim命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%91%A1%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9"><span class="nav-number">2.2.2.</span> <span class="nav-text">②修改文件内容</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E4%B8%8A%E4%BC%A0%E9%A1%B9%E7%9B%AE%E4%BB%A3%E7%A0%81%E8%87%B3GitHub"><span class="nav-number">3.</span> <span class="nav-text">三、上传项目代码至GitHub</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%B0%86%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E5%88%B0%E6%9A%82%E5%AD%98%E5%8C%BA"><span class="nav-number">3.1.</span> <span class="nav-text">1.将文件上传到暂存区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%B0%86%E6%9A%82%E5%AD%98%E5%8C%BA%E6%96%87%E4%BB%B6%E6%B7%BB%E5%8A%A0%E5%88%B0%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93"><span class="nav-number">3.2.</span> <span class="nav-text">2.将暂存区文件添加到本地仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%B0%86%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E8%87%B3GitHub"><span class="nav-number">3.3.</span> <span class="nav-text">3.将文件上传至GitHub</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E6%9F%A5%E7%9C%8BGitHub%E6%96%87%E4%BB%B6%E6%98%AF%E5%90%A6%E4%BF%AE%E6%94%B9"><span class="nav-number">3.4.</span> <span class="nav-text">4.查看GitHub文件是否修改</span></a></li></ol></li></ol>
+        <div class="page-title">SpringBoot-vue全栈开发之Axios篇</div>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81Axios%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">一、Axios的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-Axios%E7%AE%80%E4%BB%8B"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 Axios简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-%E5%8F%91%E9%80%81%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 发送网络请求</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-1-%E5%8F%91%E9%80%81Get%E8%AF%B7%E6%B1%82"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.2.1 发送Get请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-2-%E5%8F%91%E9%80%81Post%E8%AF%B7%E6%B1%82"><span class="nav-number">1.2.2.</span> <span class="nav-text">1.2.2 发送Post请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-3-%E5%BC%82%E6%AD%A5%E5%9B%9E%E8%B0%83%E9%97%AE%E9%A2%98"><span class="nav-number">1.2.3.</span> <span class="nav-text">1.2.3 异步回调问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-4-%E5%85%B6%E4%BB%96%E8%AF%B7%E6%B1%82%E6%96%B9%E5%BC%8F"><span class="nav-number">1.2.4.</span> <span class="nav-text">1.2.4 其他请求方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98%EF%BC%9A%E5%89%8D%E5%90%8E%E7%AB%AF%E7%9B%B8%E8%BF%9E"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 跨域问题：前后端相连</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-1-%E4%B8%BA%E4%BB%80%E4%B9%88%E5%87%BA%E7%8E%B0%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98"><span class="nav-number">1.3.1.</span> <span class="nav-text">1.3.1 为什么出现跨域问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-2-%E8%B7%A8%E5%9F%9F%E7%9A%84%E8%A7%A3%E5%86%B3"><span class="nav-number">1.3.2.</span> <span class="nav-text">1.3.2 跨域的解决</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-3-%E7%AE%80%E5%8D%95%E8%AF%B7%E6%B1%82%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%A4%84%E7%90%86"><span class="nav-number">1.3.3.</span> <span class="nav-text">1.3.3 简单请求的服务器处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-4-%E9%9D%9E%E7%AE%80%E5%8D%95%E8%AF%B7%E6%B1%82"><span class="nav-number">1.3.4.</span> <span class="nav-text">1.3.4 非简单请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-5-SpringBoot%E7%9A%84%E4%B8%AD%E9%85%8D%E7%BD%AECORS"><span class="nav-number">1.3.5.</span> <span class="nav-text">1.3.5 SpringBoot的中配置CORS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-6-%E5%90%8E%E7%AB%AF%E6%95%B0%E6%8D%AE%E6%98%BE%E7%A4%BA%E5%9C%A8%E8%A1%A8%E6%A0%BC%EF%BC%88%E6%89%93%E9%80%9A%E5%89%8D%E5%90%8E%E7%AB%AF%E8%BF%9E%E6%8E%A5%EF%BC%89"><span class="nav-number">1.3.6.</span> <span class="nav-text">1.3.6 后端数据显示在表格（打通前后端连接）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E4%B8%8EVue%E6%95%B4%E5%90%88"><span class="nav-number">2.</span> <span class="nav-text">二、与Vue整合</span></a></li></ol>
 
     </div>
 </div>
