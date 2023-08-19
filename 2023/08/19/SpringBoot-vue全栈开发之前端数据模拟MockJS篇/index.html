@@ -13,36 +13,36 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="http://example.com/2023/08/17/restful服务-swagger/"/>
+    <link rel="canonical" href="http://example.com/2023/08/19/springboot-vue全栈开发之前端数据模拟mockjs篇/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta name="description" content="一、RESTFUL介绍1.1 简介 1.2 RESTFUL特点 1.3 RESTFUL API 1.4 HTTP Method 1.5 HTTP 状态码 二、构建RESTful应用接口2.1 SpringBoot实现RESTful API基本方法：  示例：  1234567891011121314151617181920@RestControllerpublic class UserContro">
+        <meta name="description" content="一、MockJS介绍1.1 基本介绍 二、MockJS基本使用2.1 基本使用在项目中创建mock目录，新建index.js文件 1234567891011121314&#x2F;&#x2F;引入mocksimport Mock from &amp;#x27;mockjs&amp;#x27;&#x2F;&#x2F;使用mockjs模拟数据Mock.mock(&amp;#x27;&#x2F;product&#x2F;search&amp;#x27;,&amp;#123;    &quot;ret&amp;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SpringBoot-vue全栈开发之RESTFUL服务+Swagger篇">
-<meta property="og:url" content="http://example.com/2023/08/17/RESTFUL%E6%9C%8D%E5%8A%A1-Swagger/index.html">
+<meta property="og:title" content="SpringBoot-vue全栈开发之前端数据模拟MockJS篇">
+<meta property="og:url" content="http://example.com/2023/08/19/SpringBoot-vue%E5%85%A8%E6%A0%88%E5%BC%80%E5%8F%91%E4%B9%8B%E5%89%8D%E7%AB%AF%E6%95%B0%E6%8D%AE%E6%A8%A1%E6%8B%9FMockJS%E7%AF%87/index.html">
 <meta property="og:site_name" content="轻舟已过万重山">
-<meta property="og:description" content="一、RESTFUL介绍1.1 简介 1.2 RESTFUL特点 1.3 RESTFUL API 1.4 HTTP Method 1.5 HTTP 状态码 二、构建RESTful应用接口2.1 SpringBoot实现RESTful API基本方法：  示例：  1234567891011121314151617181920@RestControllerpublic class UserContro">
+<meta property="og:description" content="一、MockJS介绍1.1 基本介绍 二、MockJS基本使用2.1 基本使用在项目中创建mock目录，新建index.js文件 1234567891011121314&#x2F;&#x2F;引入mocksimport Mock from &amp;#x27;mockjs&amp;#x27;&#x2F;&#x2F;使用mockjs模拟数据Mock.mock(&amp;#x27;&#x2F;product&#x2F;search&amp;#x27;,&amp;#123;    &quot;ret&amp;">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/pic/RESTFUL%E7%AE%80%E4%BB%8B.png">
-<meta property="og:image" content="http://example.com/pic/RESTFUL%E7%89%B9%E7%82%B9.png">
-<meta property="og:image" content="http://example.com/pic/RESTFUL%20API.png">
-<meta property="og:image" content="http://example.com/pic/HTTP%20Method.png">
-<meta property="og:image" content="http://example.com/pic/HTTP%E7%8A%B6%E6%80%81%E7%A0%81.png">
-<meta property="og:image" content="http://example.com/pic/springboot%E5%AE%9E%E7%8E%B0Restful.png">
-<meta property="og:image" content="http://example.com/pic/springboot%E5%AE%9E%E7%8E%B0restful2.png">
-<meta property="og:image" content="http://example.com/pic/%E4%BB%80%E4%B9%88%E6%98%AFswagger.png">
-<meta property="og:image" content="http://example.com/pic/%E9%85%8D%E7%BD%AEswagger.png">
-<meta property="article:published_time" content="2023-08-17T04:31:25.000Z">
-<meta property="article:modified_time" content="2023-08-17T04:59:44.212Z">
+<meta property="og:image" content="http://example.com/pic/MockJS%E4%BB%8B%E7%BB%8D.png">
+<meta property="og:image" content="http://example.com/pic/%E6%A0%B8%E5%BF%83%E6%96%B9%E6%B3%95.png">
+<meta property="og:image" content="http://example.com/pic/DTD%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95.png">
+<meta property="og:image" content="http://example.com/pic/%E5%B1%9E%E6%80%A7%E5%80%BC%E6%98%AF%E5%AD%97%E7%AC%A6%E4%B8%B2String.png">
+<meta property="og:image" content="http://example.com/pic/%E5%B1%9E%E6%80%A7%E5%80%BC%E6%98%AFnubmer.png">
+<meta property="og:image" content="http://example.com/pic/%E5%B1%9E%E6%80%A7%E5%80%BC%E6%98%AFboolean.png">
+<meta property="og:image" content="http://example.com/pic/%E5%B1%9E%E6%80%A7%E5%80%BC%E6%98%AFobject.png">
+<meta property="og:image" content="http://example.com/pic/%E5%B1%9E%E6%80%A7%E5%80%BC%E6%98%AF%E6%95%B0%E7%BB%84Array.png">
+<meta property="og:image" content="http://example.com/pic/%E5%B1%9E%E6%80%A7%E5%80%BC%E6%98%AFfunction.png">
+<meta property="og:image" content="http://example.com/pic/%E6%95%B0%E6%8D%AE%E5%8D%A0%E4%BD%8D%E7%AC%A6.png">
+<meta property="article:published_time" content="2023-08-19T04:18:02.000Z">
+<meta property="article:modified_time" content="2023-08-19T04:55:08.830Z">
 <meta property="article:author" content="Lynn">
 <meta property="article:tag" content="开发">
 <meta property="article:tag" content="学习">
 <meta property="article:tag" content="全栈开发">
-<meta property="article:tag" content="SpringBoot">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/pic/RESTFUL%E7%AE%80%E4%BB%8B.png">
+<meta name="twitter:image" content="http://example.com/pic/MockJS%E4%BB%8B%E7%BB%8D.png">
     
     
     <!--- Icon Part-->
@@ -54,7 +54,7 @@
     
     <title>
         
-            SpringBoot-vue全栈开发之RESTFUL服务+Swagger篇 -
+            SpringBoot-vue全栈开发之前端数据模拟MockJS篇 -
         
         A Lazy Dog的博客
     </title>
@@ -320,7 +320,7 @@
 
         <div class="article-title">
             
-                <h1 class="article-title-regular">SpringBoot-vue全栈开发之RESTFUL服务+Swagger篇</h1>
+                <h1 class="article-title-regular">SpringBoot-vue全栈开发之前端数据模拟MockJS篇</h1>
             
             </div>
             
@@ -342,15 +342,15 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fa-regular fa-pen-fancy"></i>&nbsp;
-        <span class="desktop">2023-08-17 12:31:25</span>
-        <span class="mobile">2023-08-17 12:31:25</span>
+        <span class="desktop">2023-08-19 12:18:02</span>
+        <span class="mobile">2023-08-19 12:18:02</span>
         <span class="hover-info">创建</span>
     </span>
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2023-08-17 12:59:44</span>
-            <span class="mobile">2023-08-17 12:59:44</span>
+            <span class="desktop">2023-08-19 12:55:08</span>
+            <span class="mobile">2023-08-19 12:55:08</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -373,10 +373,6 @@
                         | <a href="/tags/%E5%85%A8%E6%A0%88%E5%BC%80%E5%8F%91/">全栈开发</a>&nbsp;
                     </li>
                 
-                    <li>
-                        | <a href="/tags/SpringBoot/">SpringBoot</a>&nbsp;
-                    </li>
-                
             </ul>
         </span>
     
@@ -397,23 +393,31 @@
         
 
         <div class="article-content markdown-body">
-            <h1 id="一、RESTFUL介绍"><a href="#一、RESTFUL介绍" class="headerlink" title="一、RESTFUL介绍"></a>一、RESTFUL介绍</h1><h2 id="1-1-简介"><a href="#1-1-简介" class="headerlink" title="1.1 简介"></a>1.1 简介</h2><p><img lazyload src="/images/loading.svg" data-src="/../pic/RESTFUL%E7%AE%80%E4%BB%8B.png"></p>
-<h2 id="1-2-RESTFUL特点"><a href="#1-2-RESTFUL特点" class="headerlink" title="1.2 RESTFUL特点"></a>1.2 RESTFUL特点</h2><p><img lazyload src="/images/loading.svg" data-src="/../pic/RESTFUL%E7%89%B9%E7%82%B9.png"></p>
-<h2 id="1-3-RESTFUL-API"><a href="#1-3-RESTFUL-API" class="headerlink" title="1.3 RESTFUL API"></a>1.3 RESTFUL API</h2><p><img lazyload src="/images/loading.svg" data-src="/../pic/RESTFUL%20API.png"></p>
-<h2 id="1-4-HTTP-Method"><a href="#1-4-HTTP-Method" class="headerlink" title="1.4 HTTP Method"></a>1.4 HTTP Method</h2><p><img lazyload src="/images/loading.svg" data-src="/../pic/HTTP%20Method.png"></p>
-<h2 id="1-5-HTTP-状态码"><a href="#1-5-HTTP-状态码" class="headerlink" title="1.5 HTTP 状态码"></a>1.5 HTTP 状态码</h2><p><img lazyload src="/images/loading.svg" data-src="/../pic/HTTP%E7%8A%B6%E6%80%81%E7%A0%81.png"></p>
-<h1 id="二、构建RESTful应用接口"><a href="#二、构建RESTful应用接口" class="headerlink" title="二、构建RESTful应用接口"></a>二、构建RESTful应用接口</h1><h2 id="2-1-SpringBoot实现RESTful-API"><a href="#2-1-SpringBoot实现RESTful-API" class="headerlink" title="2.1 SpringBoot实现RESTful API"></a>2.1 SpringBoot实现RESTful API</h2><p>基本方法：</p>
-<p><img lazyload src="/images/loading.svg" data-src="/../pic/springboot%E5%AE%9E%E7%8E%B0Restful.png"></p>
-<p>示例：</p>
-<p><img lazyload src="/images/loading.svg" data-src="/../pic/springboot%E5%AE%9E%E7%8E%B0restful2.png"></p>
-<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UserController</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/user/&#123;id&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getUserById</span><span class="params">(<span class="meta">@PathVariable</span> <span class="type">int</span> id)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;根据id获取用户信息&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@PostMapping(&quot;/user&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">save</span><span class="params">(User user)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;添加用户&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@PutMapping(&quot;/user&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">update</span><span class="params">(User user)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;更新用户&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@DeleteMapping(&quot;/user/&#123;id&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">deleteById</span><span class="params">(<span class="meta">@PathVariable</span> <span class="type">int</span> id)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;根据ID删除用户&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+            <h1 id="一、MockJS介绍"><a href="#一、MockJS介绍" class="headerlink" title="一、MockJS介绍"></a>一、MockJS介绍</h1><h2 id="1-1-基本介绍"><a href="#1-1-基本介绍" class="headerlink" title="1.1 基本介绍"></a>1.1 基本介绍</h2><p><img lazyload src="/images/loading.svg" data-src="/../pic/MockJS%E4%BB%8B%E7%BB%8D.png"></p>
+<h1 id="二、MockJS基本使用"><a href="#二、MockJS基本使用" class="headerlink" title="二、MockJS基本使用"></a>二、MockJS基本使用</h1><h2 id="2-1-基本使用"><a href="#2-1-基本使用" class="headerlink" title="2.1 基本使用"></a>2.1 基本使用</h2><p><strong>在项目中创建mock目录，新建index.js文件</strong></p>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//引入mocks</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Mock</span> <span class="keyword">from</span> <span class="string">&#x27;mockjs&#x27;</span></span><br><span class="line"><span class="comment">//使用mockjs模拟数据</span></span><br><span class="line"><span class="title class_">Mock</span>.<span class="title function_">mock</span>(<span class="string">&#x27;/product/search&#x27;</span>,&#123;</span><br><span class="line">    <span class="string">&quot;ret&quot;</span>:<span class="number">0</span>,</span><br><span class="line">    <span class="string">&quot;data&quot;</span>:</span><br><span class="line">    &#123;</span><br><span class="line">		<span class="string">&quot;mtime&quot;</span>:<span class="string">&quot;@datatime&quot;</span>,  	<span class="comment">//随机生成日期时间</span></span><br><span class="line">        <span class="string">&quot;score|1-800&quot;</span>:<span class="number">800</span>,   	<span class="comment">//随机生成1-800的数字</span></span><br><span class="line">        <span class="string">&quot;rank|1-100&quot;</span>:<span class="number">100</span>,   	<span class="comment">//随机生成1-100的数字</span></span><br><span class="line">        <span class="string">&quot;stars|1-5&quot;</span>:<span class="number">5</span>,     		<span class="comment">//随机生成1-5的数字</span></span><br><span class="line">        <span class="string">&quot;nickname:&quot;</span>:<span class="string">&quot;@cname&quot;</span>,   <span class="comment">//随机生成中文名字</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></div>
 
-<h1 id="三、使用Swagger快速生成Web-API文档"><a href="#三、使用Swagger快速生成Web-API文档" class="headerlink" title="三、使用Swagger快速生成Web API文档"></a>三、使用Swagger快速生成Web API文档</h1><h2 id="3-1-什么是Swagger"><a href="#3-1-什么是Swagger" class="headerlink" title="3.1 什么是Swagger"></a>3.1 什么是Swagger</h2><p><img lazyload src="/images/loading.svg" data-src="/../pic/%E4%BB%80%E4%B9%88%E6%98%AFswagger.png"></p>
-<h2 id="3-2-使用Swagger生成Web-API文档"><a href="#3-2-使用Swagger生成Web-API文档" class="headerlink" title="3.2 使用Swagger生成Web API文档"></a>3.2 使用Swagger生成Web API文档</h2><p>引入依赖即可：</p>
-<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger-ui<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+<p><strong>组件中调用mock.js中模拟的数据接口，这时返回的response就是mock.js中用Mock.mock(‘url’,data)中设置的data</strong></p>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    axios.<span class="title function_">get</span>(<span class="string">&quot;/product/search&quot;</span>).<span class="title function_">then</span>(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(res)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 
-<h2 id="3-3-配置Swagger"><a href="#3-3-配置Swagger" class="headerlink" title="3.3 配置Swagger"></a>3.3 配置Swagger</h2><p><img lazyload src="/images/loading.svg" data-src="/../pic/%E9%85%8D%E7%BD%AEswagger.png"></p>
-<h2 id="3-4-使用Swagger2进行接口测试"><a href="#3-4-使用Swagger2进行接口测试" class="headerlink" title="3.4 使用Swagger2进行接口测试"></a>3.4 使用Swagger2进行接口测试</h2><p>启动项目<a class="link" target="_blank" rel="noopener" href="http://127.0.0.1:8080/swagger-ui.html%EF%BC%8C%E5%8D%B3%E5%8F%AF%E6%89%93%E5%BC%80%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96%E6%B5%8B%E8%AF%95%E9%A1%B5%E9%9D%A2">http://127.0.0.1:8080/swagger-ui.html，即可打开自动生成的可视化测试页面 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p><strong>注意</strong>：res的值对应index.js文件中{}中的值</p>
+<p><strong>在main.js中引入</strong></p>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&#x27;./mock&#x27;</span></span><br></pre></td></tr></table></figure></div>
+
+<h2 id="2-2-核心方法"><a href="#2-2-核心方法" class="headerlink" title="2.2 核心方法"></a>2.2 核心方法</h2><p><img lazyload src="/images/loading.svg" data-src="/../pic/%E6%A0%B8%E5%BF%83%E6%96%B9%E6%B3%95.png"></p>
+<h1 id="三、数据生成规则"><a href="#三、数据生成规则" class="headerlink" title="三、数据生成规则"></a>三、数据生成规则</h1><h2 id="3-1-数据模板DTD"><a href="#3-1-数据模板DTD" class="headerlink" title="3.1 数据模板DTD"></a>3.1 数据模板DTD</h2><p>mock语法包含两层规范</p>
+<ul>
+<li>数据模板DTD</li>
+<li>数据占位符DPD</li>
+</ul>
+<h3 id="3-1-1-基本语法"><a href="#3-1-1-基本语法" class="headerlink" title="3.1.1 基本语法"></a>3.1.1 基本语法</h3><p><img lazyload src="/images/loading.svg" data-src="/../pic/DTD%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95.png"></p>
+<h3 id="3-1-2-生成规则和示例"><a href="#3-1-2-生成规则和示例" class="headerlink" title="3.1.2 生成规则和示例"></a>3.1.2 生成规则和示例</h3><h4 id="1-属性值是字符串String"><a href="#1-属性值是字符串String" class="headerlink" title="1.属性值是字符串String"></a>1.属性值是字符串String</h4><p><img lazyload src="/images/loading.svg" data-src="/../pic/%E5%B1%9E%E6%80%A7%E5%80%BC%E6%98%AF%E5%AD%97%E7%AC%A6%E4%B8%B2String.png"></p>
+<h4 id="2、属性值是数字number"><a href="#2、属性值是数字number" class="headerlink" title="2、属性值是数字number"></a>2、属性值是数字number</h4><p><img lazyload src="/images/loading.svg" data-src="/../pic/%E5%B1%9E%E6%80%A7%E5%80%BC%E6%98%AFnubmer.png"></p>
+<h4 id="3、属性值是boolean"><a href="#3、属性值是boolean" class="headerlink" title="3、属性值是boolean"></a>3、属性值是boolean</h4><p><img lazyload src="/images/loading.svg" data-src="/../pic/%E5%B1%9E%E6%80%A7%E5%80%BC%E6%98%AFboolean.png"></p>
+<h4 id="4、属性值是Object"><a href="#4、属性值是Object" class="headerlink" title="4、属性值是Object"></a>4、属性值是Object</h4><p><img lazyload src="/images/loading.svg" data-src="/../pic/%E5%B1%9E%E6%80%A7%E5%80%BC%E6%98%AFobject.png"></p>
+<h4 id="5、属性值是数组Array"><a href="#5、属性值是数组Array" class="headerlink" title="5、属性值是数组Array"></a>5、属性值是数组Array</h4><p><img lazyload src="/images/loading.svg" data-src="/../pic/%E5%B1%9E%E6%80%A7%E5%80%BC%E6%98%AF%E6%95%B0%E7%BB%84Array.png"></p>
+<h4 id="6、属性值是函数Function"><a href="#6、属性值是函数Function" class="headerlink" title="6、属性值是函数Function"></a>6、属性值是函数Function</h4><p><img lazyload src="/images/loading.svg" data-src="/../pic/%E5%B1%9E%E6%80%A7%E5%80%BC%E6%98%AFfunction.png"></p>
+<h2 id="3-2-数据占位符"><a href="#3-2-数据占位符" class="headerlink" title="3.2 数据占位符"></a>3.2 数据占位符</h2><p><img lazyload src="/images/loading.svg" data-src="/../pic/%E6%95%B0%E6%8D%AE%E5%8D%A0%E4%BD%8D%E7%AC%A6.png"></p>
 
         </div>
 
@@ -421,16 +425,16 @@
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul>
-        <li><strong>标题:</strong> SpringBoot-vue全栈开发之RESTFUL服务+Swagger篇</li>
+        <li><strong>标题:</strong> SpringBoot-vue全栈开发之前端数据模拟MockJS篇</li>
         <li><strong>作者:</strong> Lynn</li>
-        <li><strong>创建于:</strong> 2023-08-17 12:31:25</li>
+        <li><strong>创建于:</strong> 2023-08-19 12:18:02</li>
         
             <li>
-                <strong>更新于:</strong> 2023-08-17 12:59:44
+                <strong>更新于:</strong> 2023-08-19 12:55:08
             </li>
         
         <li>
-            <strong>链接:</strong> https://redefine.ohevan.com/2023/08/17/RESTFUL服务-Swagger/
+            <strong>链接:</strong> https://redefine.ohevan.com/2023/08/19/SpringBoot-vue全栈开发之前端数据模拟MockJS篇/
         </li>
         <li>
             <strong>版权声明:</strong> 本文章采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a> 进行许可。
@@ -456,10 +460,6 @@
                         <a href="/tags/%E5%85%A8%E6%A0%88%E5%BC%80%E5%8F%91/">#全栈开发</a>&nbsp;
                     </li>
                 
-                    <li class="tag-item">
-                        <a href="/tags/SpringBoot/">#SpringBoot</a>&nbsp;
-                    </li>
-                
             </ul>
         
 
@@ -468,29 +468,14 @@
         
             <div class="article-nav">
                 
-                    <div class="article-prev">
-                        <a class="prev"
-                        rel="prev"
-                        href="/2023/08/17/SpringBoot-vue%E5%85%A8%E6%A0%88%E5%BC%80%E5%8F%91%E4%B9%8BMyBatisPlus%E7%AF%87/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                                <i class="fa-solid fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">SpringBoot-vue全栈开发之MyBatisPlus篇</span>
-                                <span class="post-nav-item">上一篇</span>
-                            </span>
-                        </a>
-                    </div>
-                
                 
                     <div class="article-next">
                         <a class="next"
                         rel="next"
-                        href="/2023/08/16/Springboot-vue%E5%85%A8%E6%A0%88%E5%BC%80%E5%8F%91/"
+                        href="/2023/08/18/SpringBoot-vue%E5%85%A8%E6%A0%88%E5%BC%80%E5%8F%91%E4%B9%8BJWT%E8%B7%A8%E5%9F%9F%E7%AF%87/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">Springboot+vue全栈开发之SpringBoot篇</span>
+                                <span class="post-nav-title-item">SpringBoot-vue全栈开发之JWT跨域篇</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -555,8 +540,8 @@
             <div class="post-toc-wrap">
     <div class="post-toc">
         <div class="toc-title">此页目录</div>
-        <div class="page-title">SpringBoot-vue全栈开发之RESTFUL服务+Swagger篇</div>
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81RESTFUL%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">一、RESTFUL介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-%E7%AE%80%E4%BB%8B"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-RESTFUL%E7%89%B9%E7%82%B9"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 RESTFUL特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-RESTFUL-API"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 RESTFUL API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-HTTP-Method"><span class="nav-number">1.4.</span> <span class="nav-text">1.4 HTTP Method</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-5-HTTP-%E7%8A%B6%E6%80%81%E7%A0%81"><span class="nav-number">1.5.</span> <span class="nav-text">1.5 HTTP 状态码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%9E%84%E5%BB%BARESTful%E5%BA%94%E7%94%A8%E6%8E%A5%E5%8F%A3"><span class="nav-number">2.</span> <span class="nav-text">二、构建RESTful应用接口</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-SpringBoot%E5%AE%9E%E7%8E%B0RESTful-API"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 SpringBoot实现RESTful API</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E4%BD%BF%E7%94%A8Swagger%E5%BF%AB%E9%80%9F%E7%94%9F%E6%88%90Web-API%E6%96%87%E6%A1%A3"><span class="nav-number">3.</span> <span class="nav-text">三、使用Swagger快速生成Web API文档</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-%E4%BB%80%E4%B9%88%E6%98%AFSwagger"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 什么是Swagger</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-%E4%BD%BF%E7%94%A8Swagger%E7%94%9F%E6%88%90Web-API%E6%96%87%E6%A1%A3"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 使用Swagger生成Web API文档</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-%E9%85%8D%E7%BD%AESwagger"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 配置Swagger</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-%E4%BD%BF%E7%94%A8Swagger2%E8%BF%9B%E8%A1%8C%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 使用Swagger2进行接口测试</span></a></li></ol></li></ol>
+        <div class="page-title">SpringBoot-vue全栈开发之前端数据模拟MockJS篇</div>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81MockJS%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">一、MockJS介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 基本介绍</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81MockJS%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">二、MockJS基本使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 基本使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-%E6%A0%B8%E5%BF%83%E6%96%B9%E6%B3%95"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 核心方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E6%95%B0%E6%8D%AE%E7%94%9F%E6%88%90%E8%A7%84%E5%88%99"><span class="nav-number">3.</span> <span class="nav-text">三、数据生成规则</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-%E6%95%B0%E6%8D%AE%E6%A8%A1%E6%9D%BFDTD"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 数据模板DTD</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-1-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="nav-number">3.1.1.</span> <span class="nav-text">3.1.1 基本语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-2-%E7%94%9F%E6%88%90%E8%A7%84%E5%88%99%E5%92%8C%E7%A4%BA%E4%BE%8B"><span class="nav-number">3.1.2.</span> <span class="nav-text">3.1.2 生成规则和示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-%E6%95%B0%E6%8D%AE%E5%8D%A0%E4%BD%8D%E7%AC%A6"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 数据占位符</span></a></li></ol></li></ol>
 
     </div>
 </div>
