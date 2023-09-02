@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="Lynn">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="http://example.com/2023/09/01/springboot-vue前后端分离实践二/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+        <meta name="description" content="1.JWT整合1.1 JWT依赖12345&lt;dependency&gt;    &lt;groupId&gt;io.jsonwebtoken&lt;&#x2F;groupId&gt;    &lt;artifactId&gt;jjwt&lt;&#x2F;artifactId&gt;    &lt;version&gt;0.9.1&lt;&#x2F;version&gt;&lt;&#x2F;dependency&gt;  1.2 J">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringBoot+Vue前后端分离实践二(完结撒花)">
+<meta property="og:url" content="http://example.com/2023/09/01/SpringBoot-Vue%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E5%AE%9E%E8%B7%B5%E4%BA%8C/index.html">
+<meta property="og:site_name" content="轻舟已过万重山">
+<meta property="og:description" content="1.JWT整合1.1 JWT依赖12345&lt;dependency&gt;    &lt;groupId&gt;io.jsonwebtoken&lt;&#x2F;groupId&gt;    &lt;artifactId&gt;jjwt&lt;&#x2F;artifactId&gt;    &lt;version&gt;0.9.1&lt;&#x2F;version&gt;&lt;&#x2F;dependency&gt;  1.2 J">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/Resources/image-20230901172949744.png">
+<meta property="og:image" content="http://example.com/Resources/image-20230901173028079.png">
+<meta property="og:image" content="http://example.com/Resources/image-20230901173256886.png">
+<meta property="og:image" content="http://example.com/Resources/image-20230901180010317.png">
+<meta property="og:image" content="http://example.com/Resources/image-20230901180027254.png">
+<meta property="og:image" content="http://example.com/Resources/image-20230901210004338.png">
+<meta property="og:image" content="http://example.com/Resources/image-20230901235041076.png">
+<meta property="og:image" content="http://example.com/Resources/image-20230902133855800.png">
+<meta property="og:image" content="http://example.com/Resources/image-20230902140912474.png">
+<meta property="og:image" content="http://example.com/Resources/image-20230902140949333.png">
+<meta property="og:image" content="http://example.com/Resources/image-20230902141029574.png">
+<meta property="og:image" content="http://example.com/Resources/image-20230902141116992.png">
+<meta property="og:image" content="http://example.com/Resources/image-20230902153733268.png">
+<meta property="og:image" content="http://example.com/Resources/image-20230902161442821.png">
+<meta property="og:image" content="http://example.com/Resources/image-20230902161511985.png">
+<meta property="og:image" content="http://example.com/Resources/image-20230902161555868.png">
+<meta property="og:image" content="http://example.com/Resources/image-20230902161628464.png">
+<meta property="og:image" content="http://example.com/Resources/image-20230902161652936.png">
+<meta property="og:image" content="http://example.com/Resources/image-20230902173227289.png">
+<meta property="og:image" content="http://example.com/Resources/image-20230902174129641.png">
+<meta property="og:image" content="http://example.com/Resources/image-20230902174145473.png">
+<meta property="og:image" content="http://example.com/Resources/image-20230902174210421.png">
+<meta property="og:image" content="http://example.com/Resources/image-20230902174247337.png">
+<meta property="og:image" content="http://example.com/Resources/image-20230902174444454.png">
+<meta property="og:image" content="http://example.com/Resources/image-20230902174612681.png">
+<meta property="og:image" content="http://example.com/Resources/image-20230902174716515.png">
+<meta property="og:image" content="http://example.com/Resources/image-20230902175004795.png">
+<meta property="article:published_time" content="2023-09-01T06:16:11.000Z">
+<meta property="article:modified_time" content="2023-09-02T10:05:08.972Z">
+<meta property="article:author" content="Lynn">
+<meta property="article:tag" content="SpringBoot">
+<meta property="article:tag" content="Vue">
+<meta property="article:tag" content="MyBatisPlus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/Resources/image-20230901172949744.png">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/ghost.jpg" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/ghost.jpg">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="/images/ghost.jpg">
+    <!--- Page Info-->
+    
+    <title>
+        
+            SpringBoot+Vue前后端分离实践二(完结撒花) -
+        
+        A Lazy Dog的博客
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<link rel="stylesheet" href="/fonts/fonts.css">
+
+    
+<link rel="stylesheet" href="/fonts/Satoshi/satoshi.css">
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+    <!--- Font Part-->
+    
+    
+    
+    
+
+    <!--- Inject Part-->
+    
+    <script id="hexo-configurations">
+    let Global = window.Global || {};
+    Global.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.xml"};
+    Global.theme_config = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":true,"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"回看,轻舟已过万重山","subtitle":{"text":["前看,前路漫漫亦灿灿"],"hitokoto":{"enable":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":"trues","links":{"github":"https://github.com/L1ynness","zhihu":"https://www.zhihu.com/people/lynn-56-27-19"},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.3.0","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Github":{"path":"https://github.com/","icon":"fa-brands fa-github","navbar":null},"Learning":{"icon":"fa-solid fa-book","submenus":{"Cute Word":"https://thiscute.world/","教务系统":"https://webvpn-w1.gcu.edu.cn/login","四六级":"https://mp.weixin.qq.com/s/8m9J7sFST3gB4loysLbP1A","java全栈知识体系":"https://pdai.tech/"}}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"}}},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2022/8/17 11:45:14"};
+    Global.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+    Global.data_config = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="swup-progress-icon">
+            <i class="fa-solid fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container" id="swup">
+    
+
+    
+
+    <div class="main-content-container">
+        
+
+        <div class="main-content-header">
+            <header class="navbar-container">
+    
+    <div class="navbar-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                A Lazy Dog的博客
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-house"></i>
+                                        
+                                        首页
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    target="_blank" rel="noopener" href="https://github.com/"  >
+                                    
+                                        
+                                            <i class="fa-brands fa-github"></i>
+                                        
+                                        GITHUB
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="has-dropdown" 
+                                    href="#" onClick="return false;">
+                                    
+                                        
+                                            <i class="fa-solid fa-book"></i>
+                                        
+                                        LEARNING&nbsp;<i class="fa-solid fa-chevron-down"></i>
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                                    <ul class="sub-menu">
+                                    
+                                        <li>
+                                        <a target="_blank" rel="noopener" href="https://thiscute.world/">CUTE WORD
+                                        </a>
+                                        </li>
+                                    
+                                        <li>
+                                        <a target="_blank" rel="noopener" href="https://webvpn-w1.gcu.edu.cn/login">教务系统
+                                        </a>
+                                        </li>
+                                    
+                                        <li>
+                                        <a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/8m9J7sFST3gB4loysLbP1A">四六级
+                                        </a>
+                                        </li>
+                                    
+                                        <li>
+                                        <a target="_blank" rel="noopener" href="https://pdai.tech/">JAVA全栈知识体系
+                                        </a>
+                                        </li>
+                                    
+                                    </ul>
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i></div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div class="navbar-drawer">
+        <ul class="drawer-navbar-list">
+            
+                
+                    <li class="drawer-navbar-item flex-center">
+                        <a class="" 
+                        href="/"  >
+                             
+                                
+                                    <i class="fa-regular fa-house"></i>
+                                
+                                首页
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+                
+                    <li class="drawer-navbar-item flex-center">
+                        <a class="" 
+                        target="_blank" rel="noopener" href="https://github.com/"  >
+                             
+                                
+                                    <i class="fa-brands fa-github"></i>
+                                
+                                GITHUB
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+                
+                    <li class="drawer-navbar-item flex-center">
+                        <a class="has-dropdown" 
+                        href="#" onClick="return false;">
+                            
+                                
+                                    <i class="fa-solid fa-book"></i>
+                                
+                                LEARNING&nbsp;<i class="fa-solid fa-chevron-down"></i>
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                              
+                        
+                            <li class="dropdown-item flex-center">
+                                <a class="dropdown-item" target="_blank" rel="noopener" href="https://thiscute.world/">CUTE WORD</a>
+                            </li>
+                        
+                            <li class="dropdown-item flex-center">
+                                <a class="dropdown-item" target="_blank" rel="noopener" href="https://webvpn-w1.gcu.edu.cn/login">教务系统</a>
+                            </li>
+                        
+                            <li class="dropdown-item flex-center">
+                                <a class="dropdown-item" target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/8m9J7sFST3gB4loysLbP1A">四六级</a>
+                            </li>
+                        
+                            <li class="dropdown-item flex-center">
+                                <a class="dropdown-item" target="_blank" rel="noopener" href="https://pdai.tech/">JAVA全栈知识体系</a>
+                            </li>
+                        
+                    
+            
+
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="main-content-body">
+
+            
+
+            <div class="main-content">
+
+                
+                    <div class="post-page-container">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            
+                <h1 class="article-title-regular">SpringBoot+Vue前后端分离实践二(完结撒花)</h1>
+            
+            </div>
+            
+                    
+        
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/ghost.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Lynn</span>
+                        
+                            <span class="author-label">Lv3</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2023-09-01 14:16:11</span>
+        <span class="mobile">2023-09-01 14:16:11</span>
+        <span class="hover-info">创建</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2023-09-02 18:05:08</span>
+            <span class="mobile">2023-09-02 18:05:08</span>
+            <span class="hover-info">更新</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB/">前后端分离</a>&nbsp;
+                        </li>
+                    
+                    
+                
+                    
+                        
+                            <li>></li>
+                        
+                        <li>
+                            <a href="/categories/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB/%E5%85%A8%E6%A0%88%E5%BC%80%E5%8F%91/">全栈开发</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/SpringBoot/">SpringBoot</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Vue/">Vue</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/MyBatisPlus/">MyBatisPlus</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="1-JWT整合"><a href="#1-JWT整合" class="headerlink" title="1.JWT整合"></a>1.JWT整合</h1><h2 id="1-1-JWT依赖"><a href="#1-1-JWT依赖" class="headerlink" title="1.1 JWT依赖"></a>1.1 JWT依赖</h2><div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.jsonwebtoken<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jjwt<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.9.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+
+<h2 id="1-2-JWTUtil"><a href="#1-2-JWTUtil" class="headerlink" title="1.2 JWTUtil"></a>1.2 JWTUtil</h2><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">JwtUtil</span> &#123;</span><br><span class="line">    <span class="comment">//有效期</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">long</span> <span class="variable">JWT_EXPIRE</span> <span class="operator">=</span> <span class="number">30</span>*<span class="number">60</span>*<span class="number">1000L</span>; <span class="comment">//半小时</span></span><br><span class="line">    <span class="comment">//令牌密钥</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">JWT_KEY</span> <span class="operator">=</span> <span class="string">&quot;sdfsafsa324123&quot;</span>;</span><br><span class="line">    <span class="comment">//创建token</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">createToken</span><span class="params">(Object data)</span>&#123;</span><br><span class="line">        <span class="comment">//当前时间</span></span><br><span class="line">        <span class="type">long</span> <span class="variable">currentTime</span> <span class="operator">=</span> System.currentTimeMillis();</span><br><span class="line">        <span class="comment">//过期时间</span></span><br><span class="line">        <span class="type">long</span> <span class="variable">expTime</span> <span class="operator">=</span> currentTime + JWT_EXPIRE;</span><br><span class="line">        <span class="comment">//构建JWT</span></span><br><span class="line">        <span class="type">JwtBuilder</span> <span class="variable">builder</span> <span class="operator">=</span> Jwts.builder()</span><br><span class="line">                .setId(UUID.randomUUID()+<span class="string">&quot;&quot;</span>).setSubject(JSON.toJSONString(data))</span><br><span class="line">                .setIssuer(<span class="string">&quot;system&quot;</span>).setIssuedAt(<span class="keyword">new</span> <span class="title class_">Date</span>(currentTime))</span><br><span class="line">                .signWith(SignatureAlgorithm.HS256,encodeSecret(JWT_KEY))</span><br><span class="line">                .setExpiration(<span class="keyword">new</span> <span class="title class_">Date</span>(expTime));</span><br><span class="line">        <span class="keyword">return</span> builder.compact();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> SecretKey <span class="title function_">encodeSecret</span><span class="params">(String key)</span>&#123;</span><br><span class="line">        <span class="type">byte</span>[] encode = Base64.getEncoder().encode(key.getBytes());</span><br><span class="line">        <span class="type">SecretKeySpec</span> <span class="variable">aes</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SecretKeySpec</span>(encode,<span class="number">0</span>, encode.length, <span class="string">&quot;AES&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> aes;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Claims <span class="title function_">parseToken</span><span class="params">(String token)</span>&#123;</span><br><span class="line">        <span class="type">Claims</span> <span class="variable">body</span> <span class="operator">=</span> Jwts.parser()</span><br><span class="line">                .setSigningKey(encodeSecret(JWT_KEY))</span><br><span class="line">                .parseClaimsJws(token)</span><br><span class="line">                .getBody();</span><br><span class="line">        <span class="keyword">return</span> body;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> &lt;T&gt; T <span class="title function_">parseToken</span><span class="params">(String token,Class&lt;T&gt; clazz)</span>&#123;</span><br><span class="line">        <span class="type">Claims</span> <span class="variable">body</span> <span class="operator">=</span> Jwts.parser()</span><br><span class="line">                .setSigningKey(encodeSecret(JWT_KEY))</span><br><span class="line">                .parseClaimsJws(token)</span><br><span class="line">                .getBody();</span><br><span class="line">        <span class="keyword">return</span> JSON.parseObject(body.getSubject(),clazz);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="1-2-1-junit测试token"><a href="#1-2-1-junit测试token" class="headerlink" title="1.2.1 junit测试token"></a>1.2.1 junit测试token</h3><p>在porm.xml中加入依赖</p>
+<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Junit依赖 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+
+<p>编写测试类：</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">JwtUtilsTest</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> JwtUtil jwtUtil;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testCreateJwt</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">User</span>();</span><br><span class="line">        user.setUsername(<span class="string">&quot;zhangsan&quot;</span>);</span><br><span class="line">        user.setPassword(<span class="string">&quot;1242312&quot;</span>);</span><br><span class="line">        <span class="type">String</span> <span class="variable">token</span> <span class="operator">=</span> jwtUtil.createToken(user);</span><br><span class="line">        System.out.println(<span class="string">&quot;token = &gt;&quot;</span> + token);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    * token = &gt;eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI2Y2IzNTBhNi1iN</span></span><br><span class="line"><span class="comment">    * mVjLTRmYTMtOWQ3NC1hMGJjNGE3YTJiNWMiLCJzdWIiOiJ7XCJwYXNzd29yZFwiOlwiMTI0MjMxMlwiLFwidXN</span></span><br><span class="line"><span class="comment">    * lcm5hbWVcIjpcInpoYW5nc2FuXCJ9IiwiaXNzIjoic3lzdGVtIiwiaWF0IjoxNjkzNTU2OTI5LCJleHA</span></span><br><span class="line"><span class="comment">    * iOjE2OTM1NTg3Mjl9.iTJXnFs4w3TWBMDufz-xACtc5BzAMl9WEfZfkee4cqo</span></span><br><span class="line"><span class="comment">    * */</span></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testParseJwt</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">token</span> <span class="operator">=</span> <span class="string">&quot;eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI2Y2IzNTBhNi1iNmVjLTRmYTMtOWQ3NC1hMGJjNGE3YTJiNWMiLCJzdWIiOiJ7XCJwYXNzd29yZFwiOlwiMTI0MjMxMlwiLFwidXNlcm5hbWVcIjpcInpoYW5nc2FuXCJ9IiwiaXNzIjoic3lzdGVtIiwiaWF0IjoxNjkzNTU2OTI5LCJleHAiOjE2OTM1NTg3Mjl9.iTJXnFs4w3TWBMDufz-xACtc5BzAMl9WEfZfkee4cqo&quot;</span>;</span><br><span class="line">        <span class="type">Claims</span> <span class="variable">claims</span> <span class="operator">=</span> jwtUtil.parseToken(token);</span><br><span class="line">        System.out.println(<span class="string">&quot;claims = &quot;</span> + claims);</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        * claims = &#123;jti=6cb350a6-b6ec-4fa3-9d74-a0bc4a7a2b5c, sub=&#123;&quot;password&quot;:&quot;1242312&quot;,&quot;username&quot;:&quot;zhangsan&quot;&#125;, \</span></span><br><span class="line"><span class="comment">        * iss=system, iat=1693556929, exp=1693558729&#125;</span></span><br><span class="line"><span class="comment">        * */</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testParseJwt2</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">token</span> <span class="operator">=</span> <span class="string">&quot;eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI2Y2IzNTBhNi1iNmVjLTRmYTMtOWQ3NC1hMGJjNGE3YTJiNWMiLCJzdWIiOiJ7XCJwYXNzd29yZFwiOlwiMTI0MjMxMlwiLFwidXNlcm5hbWVcIjpcInpoYW5nc2FuXCJ9IiwiaXNzIjoic3lzdGVtIiwiaWF0IjoxNjkzNTU2OTI5LCJleHAiOjE2OTM1NTg3Mjl9.iTJXnFs4w3TWBMDufz-xACtc5BzAMl9WEfZfkee4cqo&quot;</span>;</span><br><span class="line">        <span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> jwtUtil.parseToken(token,User.class);</span><br><span class="line">        System.out.println(<span class="string">&quot;user = &quot;</span> + user);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="1-2-2-UserServiceImpl整合JWT"><a href="#1-2-2-UserServiceImpl整合JWT" class="headerlink" title="1.2.2 UserServiceImpl整合JWT"></a>1.2.2 UserServiceImpl整合JWT</h3><p>①UserServiceImpl 登录接口</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">   <span class="keyword">public</span> Map&lt;String, Object&gt; <span class="title function_">login</span><span class="params">(User user)</span> &#123;</span><br><span class="line">       LambdaQueryWrapper&lt;User&gt; wrapper = <span class="keyword">new</span> <span class="title class_">LambdaQueryWrapper</span>&lt;&gt;();</span><br><span class="line">       wrapper.eq(User::getUsername,user.getUsername());</span><br><span class="line">       wrapper.eq(User::getPassword,user.getPassword());</span><br><span class="line">       <span class="type">User</span> <span class="variable">userLogin</span> <span class="operator">=</span> <span class="built_in">this</span>.baseMapper.selectOne(wrapper);</span><br><span class="line">       <span class="keyword">if</span>(userLogin!=<span class="literal">null</span> &amp;&amp; user.getPassword().equals(userLogin.getPassword())) &#123;</span><br><span class="line">           <span class="comment">//生成token，UUID；JWT</span></span><br><span class="line">           <span class="comment">//String key = &quot;user:&quot;+ UUID.randomUUID();</span></span><br><span class="line">           <span class="comment">//存入redis</span></span><br><span class="line">           userLogin.setPassword(<span class="literal">null</span>);</span><br><span class="line">           <span class="comment">//redisTemplate.opsForValue().set(key,userLogin,30, TimeUnit.MINUTES);</span></span><br><span class="line">           <span class="comment">//创建JWT</span></span><br><span class="line">           <span class="type">String</span> <span class="variable">token</span> <span class="operator">=</span> jwtUtil.createToken(userLogin);</span><br><span class="line">           <span class="comment">//返回数据</span></span><br><span class="line">           Map&lt;String,Object&gt; data = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">           data.put(<span class="string">&quot;token&quot;</span>,token);</span><br><span class="line">           <span class="keyword">return</span> data;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>②UserServiceImpl 获取用户信息接口</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Map&lt;String, Object&gt; <span class="title function_">getUserInfo</span><span class="params">(String token)</span> &#123;</span><br><span class="line">        <span class="comment">//根据token，获取redis信息</span></span><br><span class="line">        <span class="comment">//Object object = redisTemplate.opsForValue().get(token);</span></span><br><span class="line">        <span class="type">User</span> <span class="variable">userLogin</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            userLogin = jwtUtil.parseToken(token, User.class);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(userLogin != <span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="comment">//User userLogin = JSON.parseObject(JSON.toJSONString(object), User.class);</span></span><br><span class="line">            Map&lt;String,Object&gt; data = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">            data.put(<span class="string">&quot;name&quot;</span>,userLogin.getUsername());</span><br><span class="line">            data.put(<span class="string">&quot;avatar&quot;</span>,userLogin.getAvatar());</span><br><span class="line">            <span class="comment">//存入角色</span></span><br><span class="line">            List&lt;String&gt; roleList = <span class="built_in">this</span>.baseMapper.getRoleNameByUserId(userLogin.getId());</span><br><span class="line">            data.put(<span class="string">&quot;roles&quot;</span>,roleList);</span><br><span class="line">            <span class="keyword">return</span> data;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>③UserServiceImpl 注销接口</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">logout</span><span class="params">(String token)</span> &#123;</span><br><span class="line">        <span class="comment">//redisTemplate.delete(token);</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="1-2-3-测试"><a href="#1-2-3-测试" class="headerlink" title="1.2.3 测试"></a>1.2.3 测试</h3><p><strong>①进入神盾局</strong>：</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20230901172949744.png" alt="image-20230901172949744"></p>
+<p><strong>②点击进入产生的token</strong>：</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20230901173028079.png" alt="image-20230901173028079"></p>
+<h2 id="1-3-登录后续请求如何验证JWT？"><a href="#1-3-登录后续请求如何验证JWT？" class="headerlink" title="1.3 登录后续请求如何验证JWT？"></a>1.3 登录后续请求如何验证JWT？</h2><p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20230901173256886.png" alt="image-20230901173256886"></p>
+<h2 id="1-4-JWT验证拦截器"><a href="#1-4-JWT验证拦截器" class="headerlink" title="1.4 JWT验证拦截器"></a>1.4 JWT验证拦截器</h2><h3 id="1-4-1-interceptor包下的拦截器"><a href="#1-4-1-interceptor包下的拦截器" class="headerlink" title="1.4.1 interceptor包下的拦截器"></a>1.4.1 interceptor包下的拦截器</h3><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">JwtValidateInterceptor</span> <span class="keyword">implements</span> <span class="title class_">HandlerInterceptor</span> &#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> JwtUtil jwtUtil;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">preHandle</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Object handler)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">token</span> <span class="operator">=</span> request.getHeader(<span class="string">&quot;X-Token&quot;</span>);</span><br><span class="line">        log.debug(request.getRequestURI()+ <span class="string">&quot;需要验证&quot;</span>+ token);</span><br><span class="line">        <span class="keyword">if</span>(token != <span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                jwtUtil.parseToken(token);</span><br><span class="line">                log.debug(request.getRequestURI()+ <span class="string">&quot;验证通过&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        log.debug(request.getRequestURI()+ <span class="string">&quot;认证失败，禁止访问&quot;</span>);</span><br><span class="line">        response.setContentType(<span class="string">&quot;application/json;charset=utf-8&quot;</span>);</span><br><span class="line">        Result&lt;Object&gt; fail = Result.fail(<span class="number">20003</span>, <span class="string">&quot;jwt无效，请重新登录&quot;</span>);</span><br><span class="line">        response.getWriter().write(JSON.toJSONString(fail));</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>; <span class="comment">// 拦截</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="1-4-2-config包下的拦截器配置"><a href="#1-4-2-config包下的拦截器配置" class="headerlink" title="1.4.2 config包下的拦截器配置"></a>1.4.2 config包下的拦截器配置</h3><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyInterceptorConfig</span> <span class="keyword">implements</span> <span class="title class_">WebMvcConfigurer</span> &#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> JwtValidateInterceptor jwtValidateInterceptor;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">addInterceptors</span><span class="params">(InterceptorRegistry registry)</span> &#123;</span><br><span class="line">        <span class="type">InterceptorRegistration</span> <span class="variable">registration</span> <span class="operator">=</span> registry.addInterceptor(jwtValidateInterceptor);</span><br><span class="line">        registration.addPathPatterns(<span class="string">&quot;/**&quot;</span>)</span><br><span class="line">                .excludePathPatterns(</span><br><span class="line">                        <span class="string">&quot;/user/login&quot;</span>,</span><br><span class="line">                        <span class="string">&quot;/user/info&quot;</span>,</span><br><span class="line">                        <span class="string">&quot;user/logout&quot;</span></span><br><span class="line">                );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="1-4-3-测试"><a href="#1-4-3-测试" class="headerlink" title="1.4.3 测试"></a>1.4.3 测试</h3><p>在token前面加上123</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20230901180010317.png" alt="image-20230901180010317"></p>
+<p>点击查询报错</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20230901180027254.png" alt="image-20230901180027254"></p>
+<p>拦截成功！！！！</p>
+<h1 id="2-Swagger整合"><a href="#2-Swagger整合" class="headerlink" title="2.Swagger整合"></a>2.Swagger整合</h1><h2 id="2-1-Swagger依赖"><a href="#2-1-Swagger依赖" class="headerlink" title="2.1 Swagger依赖"></a>2.1 Swagger依赖</h2><div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Swagger文档工具--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.0.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+
+<h2 id="2-2-Swagger配置"><a href="#2-2-Swagger配置" class="headerlink" title="2.2 Swagger配置"></a>2.2 Swagger配置</h2><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableOpenApi</span></span><br><span class="line"><span class="meta">@EnableWebMvc</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MySwaggerConfig</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> Docket <span class="title function_">api</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Docket</span>(DocumentationType.OAS_30)</span><br><span class="line">                .apiInfo(apiInfo())</span><br><span class="line">                .select().apis(RequestHandlerSelectors.basePackage(<span class="string">&quot;com.example.springbootvue&quot;</span>))</span><br><span class="line">                .paths(PathSelectors.any()).build();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// http://localhost:8080/swagger-ui/index.html</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> ApiInfo <span class="title function_">apiInfo</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">ApiInfoBuilder</span>()</span><br><span class="line">                .title(<span class="string">&quot;神盾局特攻管理系统接口文档&quot;</span>)</span><br><span class="line">                .description(<span class="string">&quot;欢迎来到神盾局&quot;</span>)</span><br><span class="line">                .version(<span class="string">&quot;3.0&quot;</span>)</span><br><span class="line">                .contact(<span class="keyword">new</span> <span class="title class_">Contact</span>(<span class="string">&quot;My Blog&quot;</span>,<span class="string">&quot;https://www.lynness.top&quot;</span>,<span class="string">&quot;1366606525@qq.com&quot;</span>))</span><br><span class="line">                .build();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>拦截器修改</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyInterceptorConfig</span> <span class="keyword">implements</span> <span class="title class_">WebMvcConfigurer</span> &#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> JwtValidateInterceptor jwtValidateInterceptor;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">addInterceptors</span><span class="params">(InterceptorRegistry registry)</span> &#123;</span><br><span class="line">        <span class="type">InterceptorRegistration</span> <span class="variable">registration</span> <span class="operator">=</span> registry.addInterceptor(jwtValidateInterceptor);</span><br><span class="line">        registration.addPathPatterns(<span class="string">&quot;/**&quot;</span>)</span><br><span class="line">                .excludePathPatterns(</span><br><span class="line">                        <span class="string">&quot;/user/login&quot;</span>,</span><br><span class="line">                        <span class="string">&quot;/user/info&quot;</span>,</span><br><span class="line">                        <span class="string">&quot;/user/logout&quot;</span>,</span><br><span class="line">                        <span class="string">&quot;/error&quot;</span>,</span><br><span class="line">                        <span class="string">&quot;/swagger-ui/**&quot;</span>,</span><br><span class="line">                        <span class="string">&quot;/swagger-resources/**&quot;</span>,</span><br><span class="line">                        <span class="string">&quot;/v3/**&quot;</span></span><br><span class="line"></span><br><span class="line">                );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="2-3-Swagger授权配置"><a href="#2-3-Swagger授权配置" class="headerlink" title="2.3 Swagger授权配置"></a>2.3 Swagger授权配置</h2><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> Docket <span class="title function_">api</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Docket</span>(DocumentationType.OAS_30)</span><br><span class="line">                .apiInfo(apiInfo())</span><br><span class="line">                .select().apis(RequestHandlerSelectors.basePackage(<span class="string">&quot;com.example.springbootvue&quot;</span>))</span><br><span class="line">                .paths(PathSelectors.any()).build()</span><br><span class="line">                .securitySchemes(Collections.singletonList(securityScheme()))</span><br><span class="line">                .securityContexts(Collections.singletonList(securityContext()));</span><br><span class="line">    &#125; </span><br><span class="line"><span class="keyword">private</span> SecurityScheme <span class="title function_">securityScheme</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">ApiKey</span>(<span class="string">&quot;X-Token&quot;</span>,<span class="string">&quot;X-Token&quot;</span>,<span class="string">&quot;header&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> SecurityContext <span class="title function_">securityContext</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> SecurityContext.builder()</span><br><span class="line">                .securityReferences(defaultAuth())</span><br><span class="line">                .forPaths(PathSelectors.regex(<span class="string">&quot;^(?!auth).*$&quot;</span>))</span><br><span class="line">                .build();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> List&lt;SecurityReference&gt; <span class="title function_">defaultAuth</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="type">AuthorizationScope</span> <span class="variable">authorizationScope</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">AuthorizationScope</span>(<span class="string">&quot;global&quot;</span>,<span class="string">&quot;accessEverything&quot;</span>);</span><br><span class="line">        AuthorizationScope[] authorizationScopes = <span class="keyword">new</span> <span class="title class_">AuthorizationScope</span>[<span class="number">1</span>];</span><br><span class="line">        authorizationScopes[<span class="number">0</span>] = authorizationScope;</span><br><span class="line">        <span class="keyword">return</span> Collections.singletonList(</span><br><span class="line">                <span class="keyword">new</span> <span class="title class_">SecurityReference</span>(<span class="string">&quot;X-Token&quot;</span>,authorizationScopes));</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>效果如下：</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20230901210004338.png" alt="image-20230901210004338"></p>
+<h1 id="3-角色管理"><a href="#3-角色管理" class="headerlink" title="3.角色管理"></a>3.角色管理</h1><h2 id="3-1-基本功能"><a href="#3-1-基本功能" class="headerlink" title="3.1 基本功能"></a>3.1 基本功能</h2><h3 id="3-1-1-预览效果"><a href="#3-1-1-预览效果" class="headerlink" title="3.1.1 预览效果"></a>3.1.1 预览效果</h3><p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20230901235041076.png" alt="image-20230901235041076"></p>
+<h3 id="3-1-2-前端"><a href="#3-1-2-前端" class="headerlink" title="3.1.2 前端"></a>3.1.2 前端</h3><p>views的sys目录下的role.vue</p>
+<div class="highlight-container" data-rel="Html"><figure class="iseeu highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 搜索栏 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">el-card</span> <span class="attr">id</span>=<span class="string">&quot;search&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">el-row</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-col</span> <span class="attr">:span</span>=<span class="string">&quot;18&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">el-input</span> <span class="attr">placeholder</span>=<span class="string">&quot;角色名&quot;</span> <span class="attr">v-model</span>=<span class="string">&quot;searchModel.roleName&quot;</span> <span class="attr">clearable</span>&gt;</span> <span class="tag">&lt;/<span class="name">el-input</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">el-button</span> @<span class="attr">click</span>=<span class="string">&quot;getRoleList&quot;</span> <span class="attr">type</span>=<span class="string">&quot;primary&quot;</span> <span class="attr">icon</span>=<span class="string">&quot;el-icon-search&quot;</span> <span class="attr">round</span>&gt;</span>查询<span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">el-col</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-col</span> <span class="attr">:span</span>=<span class="string">&quot;6&quot;</span> <span class="attr">align</span>=<span class="string">&quot;right&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">el-button</span> @<span class="attr">click</span>=<span class="string">&quot;openEditUI(null)&quot;</span> <span class="attr">type</span>=<span class="string">&quot;primary&quot;</span> <span class="attr">icon</span>=<span class="string">&quot;el-icon-plus&quot;</span> <span class="attr">circle</span>&gt;</span><span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">el-col</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">el-row</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">el-card</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 结果列表 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">el-card</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">        <span class="tag">&lt;<span class="name">el-table</span> <span class="attr">:data</span>=<span class="string">&quot;roleList&quot;</span> <span class="attr">stripe</span> <span class="attr">style</span>=<span class="string">&quot;width: 100%&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">el-table-column</span> <span class="attr">label</span>=<span class="string">&quot;#&quot;</span> <span class="attr">width</span>=<span class="string">&quot;80&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">template</span> <span class="attr">slot-scope</span>=<span class="string">&quot;scope&quot;</span>&gt;</span></span><br><span class="line">              &#123;&#123;(searchModel.pageNo-1) * searchModel.pageSize + scope.$index + 1&#125;&#125;</span><br><span class="line">            <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">el-table-column</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">el-table-column</span> <span class="attr">prop</span>=<span class="string">&quot;roleId&quot;</span> <span class="attr">label</span>=<span class="string">&quot;角色编号&quot;</span> <span class="attr">width</span>=<span class="string">&quot;180&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">el-table-column</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">el-table-column</span> <span class="attr">prop</span>=<span class="string">&quot;roleName&quot;</span> <span class="attr">label</span>=<span class="string">&quot;角色名称&quot;</span> <span class="attr">width</span>=<span class="string">&quot;180&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">el-table-column</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">el-table-column</span> <span class="attr">prop</span>=<span class="string">&quot;roleDesc&quot;</span> <span class="attr">label</span>=<span class="string">&quot;角色描述&quot;</span> &gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">el-table-column</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">el-table-column</span>   <span class="attr">label</span>=<span class="string">&quot;操作&quot;</span> <span class="attr">width</span>=<span class="string">&quot;180&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">template</span> <span class="attr">slot-scope</span>=<span class="string">&quot;scope&quot;</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">el-button</span> @<span class="attr">click</span>=<span class="string">&quot;openEditUI(scope.row.roleId)&quot;</span> <span class="attr">type</span>=<span class="string">&quot;primary&quot;</span> <span class="attr">icon</span>=<span class="string">&quot;el-icon-edit&quot;</span> <span class="attr">circle</span> <span class="attr">size</span>=<span class="string">&quot;mini&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">el-button</span> @<span class="attr">click</span>=<span class="string">&quot;deleteRole(scope.row)&quot;</span> <span class="attr">type</span>=<span class="string">&quot;danger&quot;</span> <span class="attr">icon</span>=<span class="string">&quot;el-icon-delete&quot;</span> <span class="attr">circle</span> <span class="attr">size</span>=<span class="string">&quot;mini&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">el-table-column</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">el-table</span>&gt;</span> </span><br><span class="line"> </span><br><span class="line">    <span class="tag">&lt;/<span class="name">el-card</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">el-pagination</span></span></span><br><span class="line"><span class="tag">      @<span class="attr">size-change</span>=<span class="string">&quot;handleSizeChange&quot;</span></span></span><br><span class="line"><span class="tag">      @<span class="attr">current-change</span>=<span class="string">&quot;handleCurrentChange&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">:current-page</span>=<span class="string">&quot;searchModel.pageNo&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">:page-sizes</span>=<span class="string">&quot;[5, 10, 20, 50]&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">:page-size</span>=<span class="string">&quot;searchModel.pageSize&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">layout</span>=<span class="string">&quot;total, sizes, prev, pager, next, jumper&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">:total</span>=<span class="string">&quot;total&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">el-pagination</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 对话框 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">el-dialog</span> @<span class="attr">close</span>=<span class="string">&quot;clearForm&quot;</span> <span class="attr">:title</span>=<span class="string">&quot;title&quot;</span> <span class="attr">:visible.sync</span>=<span class="string">&quot;dialogFormVisible&quot;</span> <span class="attr">:close-on-click-modal</span>=<span class="string">&quot;false&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">el-form</span> <span class="attr">:model</span>=<span class="string">&quot;roleForm&quot;</span> <span class="attr">ref</span>=<span class="string">&quot;roleFormRef&quot;</span> <span class="attr">:rules</span>=<span class="string">&quot;rules&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-form-item</span> <span class="attr">prop</span>=<span class="string">&quot;roleName&quot;</span> <span class="attr">label</span>=<span class="string">&quot;角色名称&quot;</span> <span class="attr">:label-width</span>=<span class="string">&quot;formLabelWidth&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">el-input</span> <span class="attr">v-model</span>=<span class="string">&quot;roleForm.roleName&quot;</span> <span class="attr">autocomplete</span>=<span class="string">&quot;off&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">el-input</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">        <span class="tag">&lt;<span class="name">el-form-item</span> <span class="attr">prop</span>=<span class="string">&quot;roleDesc&quot;</span> <span class="attr">label</span>=<span class="string">&quot;角色描述&quot;</span> <span class="attr">:label-width</span>=<span class="string">&quot;formLabelWidth&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">el-input</span> <span class="attr">v-model</span>=<span class="string">&quot;roleForm.roleDesc&quot;</span> <span class="attr">autocomplete</span>=<span class="string">&quot;off&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">el-input</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">el-form</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">slot</span>=<span class="string">&quot;footer&quot;</span> <span class="attr">class</span>=<span class="string">&quot;dialog-footer&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-button</span> @<span class="attr">click</span>=<span class="string">&quot;dialogFormVisible = false&quot;</span>&gt;</span>取 消<span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-button</span> <span class="attr">type</span>=<span class="string">&quot;primary&quot;</span> @<span class="attr">click</span>=<span class="string">&quot;saveRole&quot;</span>&gt;</span>确 定<span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">el-dialog</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">import</span> roleApi <span class="keyword">from</span> <span class="string">&#x27;@/api/roleManage&#x27;</span></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">  <span class="title function_">data</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">    </span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">return</span>&#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">formLabelWidth</span>: <span class="string">&#x27;130px&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">roleForm</span>: &#123;&#125;,</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">dialogFormVisible</span>: <span class="literal">false</span>,</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">title</span>: <span class="string">&#x27;&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">searchModel</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">pageNo</span>: <span class="number">1</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">pageSize</span>: <span class="number">10</span></span></span><br><span class="line"><span class="language-javascript">      &#125;,</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">roleList</span>: [],</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">total</span>: <span class="number">0</span>,</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">rules</span>:&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">roleName</span>: [</span></span><br><span class="line"><span class="language-javascript">          &#123; <span class="attr">required</span>: <span class="literal">true</span>, <span class="attr">message</span>: <span class="string">&#x27;请输入角色名称&#x27;</span>, <span class="attr">trigger</span>: <span class="string">&#x27;blur&#x27;</span> &#125;,</span></span><br><span class="line"><span class="language-javascript">          &#123; <span class="attr">min</span>: <span class="number">3</span>, <span class="attr">max</span>: <span class="number">50</span>, <span class="attr">message</span>: <span class="string">&#x27;长度在 3 到 50 个字符&#x27;</span>, <span class="attr">trigger</span>: <span class="string">&#x27;blur&#x27;</span> &#125;</span></span><br><span class="line"><span class="language-javascript">        ]</span></span><br><span class="line"><span class="language-javascript">      &#125;</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">methods</span>:&#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">deleteRole</span>(<span class="params">role</span>)&#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.$confirm(<span class="string">`您确定删除角色 <span class="subst">$&#123;role.roleName&#125;</span> ？`</span>, <span class="string">&#x27;提示&#x27;</span>, &#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">confirmButtonText</span>: <span class="string">&#x27;确定&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">cancelButtonText</span>: <span class="string">&#x27;取消&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">type</span>: <span class="string">&#x27;warning&#x27;</span></span></span><br><span class="line"><span class="language-javascript">      &#125;).<span class="title function_">then</span>(<span class="function">() =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">        roleApi.<span class="title function_">deleteRoleById</span>(role.<span class="property">roleId</span>).<span class="title function_">then</span>(<span class="function"><span class="params">response</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="variable language_">this</span>.$message(&#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">type</span>: <span class="string">&#x27;success&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">message</span>: response.<span class="property">message</span></span></span><br><span class="line"><span class="language-javascript">          &#125;);</span></span><br><span class="line"><span class="language-javascript">          <span class="variable language_">this</span>.<span class="property">dialogFormVisible</span> = <span class="literal">false</span>;</span></span><br><span class="line"><span class="language-javascript">          <span class="variable language_">this</span>.<span class="title function_">getRoleList</span>();</span></span><br><span class="line"><span class="language-javascript">        &#125;);</span></span><br><span class="line"><span class="language-javascript">        </span></span><br><span class="line"><span class="language-javascript">      &#125;).<span class="title function_">catch</span>(<span class="function">() =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">this</span>.$message(&#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">type</span>: <span class="string">&#x27;info&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">message</span>: <span class="string">&#x27;已取消删除&#x27;</span></span></span><br><span class="line"><span class="language-javascript">        &#125;);          </span></span><br><span class="line"><span class="language-javascript">      &#125;);</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">saveRole</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="comment">// 触发表单验证</span></span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">$refs</span>.<span class="property">roleFormRef</span>.<span class="title function_">validate</span>(<span class="function">(<span class="params">valid</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">if</span> (valid) &#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="comment">// 提交保存请求</span></span></span><br><span class="line"><span class="language-javascript">          roleApi.<span class="title function_">saveRole</span>(<span class="variable language_">this</span>.<span class="property">roleForm</span>).<span class="title function_">then</span>(<span class="function"><span class="params">response</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 成功提示</span></span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">this</span>.$message(&#123;</span></span><br><span class="line"><span class="language-javascript">              <span class="attr">message</span>: response.<span class="property">message</span>,</span></span><br><span class="line"><span class="language-javascript">              <span class="attr">type</span>: <span class="string">&#x27;success&#x27;</span></span></span><br><span class="line"><span class="language-javascript">            &#125;);</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 关闭对话框</span></span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">this</span>.<span class="property">dialogFormVisible</span> = <span class="literal">false</span>;</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 刷新表格数据</span></span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">this</span>.<span class="title function_">getRoleList</span>();</span></span><br><span class="line"><span class="language-javascript">          &#125;);</span></span><br><span class="line"><span class="language-javascript">          </span></span><br><span class="line"><span class="language-javascript">        &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;error submit!!&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">          <span class="keyword">return</span> <span class="literal">false</span>;</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">      &#125;);</span></span><br><span class="line"><span class="language-javascript">      </span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">clearForm</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">roleForm</span> = &#123;&#125;;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">$refs</span>.<span class="property">roleFormRef</span>.<span class="title function_">clearValidate</span>();</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">openEditUI</span>(<span class="params">id</span>)&#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">if</span>(id == <span class="literal">null</span>)&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">this</span>.<span class="property">title</span> = <span class="string">&#x27;新增角色&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript">      &#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">this</span>.<span class="property">title</span> = <span class="string">&#x27;修改角色&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript">        roleApi.<span class="title function_">getRoleById</span>(id).<span class="title function_">then</span>(<span class="function"><span class="params">response</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="variable language_">this</span>.<span class="property">roleForm</span> = response.<span class="property">data</span>;</span></span><br><span class="line"><span class="language-javascript">        &#125;);</span></span><br><span class="line"><span class="language-javascript">      &#125;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">dialogFormVisible</span> = <span class="literal">true</span>;</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">handleSizeChange</span>(<span class="params">pageSize</span>)&#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">searchModel</span>.<span class="property">pageSize</span> = pageSize;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="title function_">getRoleList</span>();</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">handleCurrentChange</span>(<span class="params">pageNo</span>)&#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">searchModel</span>.<span class="property">pageNo</span> = pageNo;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="title function_">getRoleList</span>();</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">getRoleList</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">      roleApi.<span class="title function_">getRoleList</span>(<span class="variable language_">this</span>.<span class="property">searchModel</span>).<span class="title function_">then</span>(<span class="function"><span class="params">response</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">this</span>.<span class="property">roleList</span> = response.<span class="property">data</span>.<span class="property">rows</span>;</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">this</span>.<span class="property">total</span> = response.<span class="property">data</span>.<span class="property">total</span>;</span></span><br><span class="line"><span class="language-javascript">      &#125;);</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript">  <span class="title function_">created</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">this</span>.<span class="title function_">getRoleList</span>();</span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript">&#125;;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="selector-id">#search</span> <span class="selector-class">.el-input</span> &#123;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">margin-right</span>: <span class="number">10px</span>;</span></span><br><span class="line"><span class="language-css">&#125;</span></span><br><span class="line"><span class="language-css"><span class="selector-class">.el-dialog</span> <span class="selector-class">.el-input</span>&#123;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">width</span>: <span class="number">85%</span>;</span></span><br><span class="line"><span class="language-css">&#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<p>api目录下的roleManage.js</p>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> request <span class="keyword">from</span> <span class="string">&#x27;@/utils/request&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span>&#123;</span><br><span class="line">  <span class="comment">// 分页查询角色列表</span></span><br><span class="line">  <span class="title function_">getRoleList</span>(<span class="params">searchModel</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">request</span>(&#123;</span><br><span class="line">      <span class="attr">url</span>: <span class="string">&#x27;/role/list&#x27;</span>,</span><br><span class="line">      <span class="attr">method</span>: <span class="string">&#x27;get&#x27;</span>,</span><br><span class="line">      <span class="attr">params</span>: &#123;</span><br><span class="line">        <span class="attr">roleName</span>: searchModel.<span class="property">roleName</span>,</span><br><span class="line">        <span class="attr">pageNo</span>: searchModel.<span class="property">pageNo</span>,</span><br><span class="line">        <span class="attr">pageSize</span>: searchModel.<span class="property">pageSize</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 新增</span></span><br><span class="line">  <span class="title function_">addRole</span>(<span class="params">role</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">request</span>(&#123;</span><br><span class="line">      <span class="attr">url</span>: <span class="string">&#x27;/role&#x27;</span>,</span><br><span class="line">      <span class="attr">method</span>: <span class="string">&#x27;post&#x27;</span>,</span><br><span class="line">      <span class="attr">data</span>: role</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 修改</span></span><br><span class="line">  <span class="title function_">updateRole</span>(<span class="params">role</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">request</span>(&#123;</span><br><span class="line">      <span class="attr">url</span>: <span class="string">&#x27;/role&#x27;</span>,</span><br><span class="line">      <span class="attr">method</span>: <span class="string">&#x27;put&#x27;</span>,</span><br><span class="line">      <span class="attr">data</span>: role</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 保存角色数据</span></span><br><span class="line">  <span class="title function_">saveRole</span>(<span class="params">role</span>)&#123;</span><br><span class="line">    <span class="keyword">if</span>(role.<span class="property">roleId</span> == <span class="literal">null</span> || role.<span class="property">roleId</span> == <span class="literal">undefined</span>)&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="title function_">addRole</span>(role);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="title function_">updateRole</span>(role);</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 根据id查询</span></span><br><span class="line">  <span class="title function_">getRoleById</span>(<span class="params">id</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">request</span>(&#123;</span><br><span class="line">      <span class="attr">url</span>: <span class="string">`/role/<span class="subst">$&#123;id&#125;</span>`</span>,</span><br><span class="line">      <span class="attr">method</span>: <span class="string">&#x27;get&#x27;</span></span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 根据id删除</span></span><br><span class="line">  <span class="title function_">deleteRoleById</span>(<span class="params">id</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">request</span>(&#123;</span><br><span class="line">      <span class="attr">url</span>: <span class="string">`/role/<span class="subst">$&#123;id&#125;</span>`</span>,</span><br><span class="line">      <span class="attr">method</span>: <span class="string">&#x27;delete&#x27;</span></span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="3-1-3-后端"><a href="#3-1-3-后端" class="headerlink" title="3.1.3 后端"></a>3.1.3 后端</h3><p>RoleController</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/role&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">RoleController</span> &#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> IRoleService roleService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> PasswordEncoder passwordEncoder;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiOperation(&quot;获取用户列表接口&quot;)</span></span><br><span class="line">    <span class="comment">//分页查询所有数据</span></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/list&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> Result&lt;Map&lt;String,Object&gt;&gt; <span class="title function_">getRoleList</span><span class="params">(<span class="meta">@RequestParam(value = &quot;roleName&quot;,required = false)</span>String roleName,</span></span><br><span class="line"><span class="params">                                                  <span class="meta">@RequestParam(value = &quot;pageNo&quot;)</span>Long pageNo,</span></span><br><span class="line"><span class="params">                                                  <span class="meta">@RequestParam(value = &quot;pageSize&quot;)</span>Long pageSize)</span>&#123;</span><br><span class="line">        LambdaQueryWrapper&lt;Role&gt; wrapper = <span class="keyword">new</span> <span class="title class_">LambdaQueryWrapper</span>&lt;&gt;();</span><br><span class="line">        wrapper.eq(StringUtils.hasLength(roleName), Role::getRoleName,roleName);</span><br><span class="line">        <span class="comment">//按照用户ID排序</span></span><br><span class="line">        wrapper.orderByDesc(Role::getRoleId);</span><br><span class="line">        Page&lt;Role&gt; page = <span class="keyword">new</span> <span class="title class_">Page</span>&lt;&gt;(pageNo,pageSize);</span><br><span class="line">        roleService.page(page,wrapper);</span><br><span class="line">        Map&lt;String,Object&gt; data = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">        data.put(<span class="string">&quot;total&quot;</span>,page.getTotal());</span><br><span class="line">        data.put(<span class="string">&quot;rows&quot;</span>,page.getRecords());</span><br><span class="line">        <span class="keyword">return</span> Result.success(data);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiOperation(&quot;添加角色接口&quot;)</span></span><br><span class="line">    <span class="meta">@PostMapping</span></span><br><span class="line">    <span class="keyword">public</span> Result&lt;?&gt; addRole(<span class="meta">@RequestBody</span> Role role)&#123;</span><br><span class="line">        roleService.save(role);</span><br><span class="line">        <span class="keyword">return</span> Result.success(<span class="string">&quot;新增角色成功&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiOperation(&quot;修改角色接口&quot;)</span></span><br><span class="line">    <span class="meta">@PutMapping</span></span><br><span class="line">    <span class="keyword">public</span> Result&lt;?&gt; updateRole(<span class="meta">@RequestBody</span> Role role)&#123;</span><br><span class="line">        roleService.updateById(role);</span><br><span class="line">        <span class="keyword">return</span> Result.success(<span class="string">&quot;修改角色成功&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiOperation(&quot;根据ID获取角色信息&quot;)</span></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/&#123;id&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> Result&lt;Role&gt; <span class="title function_">getRoleById</span><span class="params">(<span class="meta">@PathVariable(&quot;id&quot;)</span> Integer id)</span>&#123;</span><br><span class="line">        <span class="type">Role</span> <span class="variable">role</span> <span class="operator">=</span> roleService.getById(id);</span><br><span class="line">        <span class="keyword">return</span> Result.success(role);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiOperation(&quot;根据ID删除角色&quot;)</span></span><br><span class="line">    <span class="meta">@DeleteMapping(&quot;/&#123;id&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> Result&lt;Role&gt; <span class="title function_">deleteRoleById</span><span class="params">(<span class="meta">@PathVariable(&quot;id&quot;)</span> Integer id)</span>&#123;</span><br><span class="line">        roleService.removeById(id);</span><br><span class="line">        <span class="keyword">return</span> Result.success(<span class="string">&quot;删除角色成功&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="3-2-角色权限设置"><a href="#3-2-角色权限设置" class="headerlink" title="3.2 角色权限设置"></a>3.2 角色权限设置</h2><h3 id="3-2-1-前端"><a href="#3-2-1-前端" class="headerlink" title="3.2.1 前端"></a>3.2.1 前端</h3><p>menuMange.js</p>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> request <span class="keyword">from</span> <span class="string">&#x27;@/utils/request&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span>&#123;</span><br><span class="line">  <span class="comment">// 查询所有菜单数据</span></span><br><span class="line">  <span class="title function_">getAllMenu</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">request</span>(&#123;</span><br><span class="line">      <span class="attr">url</span>: <span class="string">&#x27;/menu&#x27;</span>,</span><br><span class="line">      <span class="attr">method</span>: <span class="string">&#x27;get&#x27;</span>,</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<p>role.vue</p>
+<div class="highlight-container" data-rel="Html"><figure class="iseeu highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">el-form-item</span></span></span><br><span class="line"><span class="tag">              <span class="attr">prop</span>=<span class="string">&quot;roleDesc&quot;</span></span></span><br><span class="line"><span class="tag">              <span class="attr">label</span>=<span class="string">&quot;权限设置&quot;</span></span></span><br><span class="line"><span class="tag">              <span class="attr">:label-width</span>=<span class="string">&quot;formLabelWidth&quot;</span></span></span><br><span class="line"><span class="tag">              &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">el-tree</span></span></span><br><span class="line"><span class="tag">             <span class="attr">:data</span>=<span class="string">&quot;menuList&quot;</span></span></span><br><span class="line"><span class="tag">             <span class="attr">:props</span>=<span class="string">&quot;menuProps&quot;</span></span></span><br><span class="line"><span class="tag">             <span class="attr">node-key</span>=<span class="string">&quot;menuId&quot;</span></span></span><br><span class="line"><span class="tag">             <span class="attr">show-checkbox</span></span></span><br><span class="line"><span class="tag">             <span class="attr">style</span>=<span class="string">&quot;width:85%&quot;</span></span></span><br><span class="line"><span class="tag">             <span class="attr">default-expand-all</span></span></span><br><span class="line"><span class="tag">             &gt;</span><span class="tag">&lt;/<span class="name">el-tree</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20230902133855800.png" alt="image-20230902133855800"></p>
+<h3 id="3-2-2-数据库"><a href="#3-2-2-数据库" class="headerlink" title="3.2.2 数据库"></a>3.2.2 数据库</h3><div class="highlight-container" data-rel="Sql"><figure class="iseeu highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> x_menu;</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> `x_menu` (`menu_id`, `component`, `path`, `redirect`, `name`, `title`, `icon`, `parent_id`, `is_leaf`, `hidden`) <span class="keyword">values</span>(<span class="string">&#x27;1&#x27;</span>,<span class="string">&#x27;Layout&#x27;</span>,<span class="string">&#x27;/sys&#x27;</span>,<span class="string">&#x27;/sys/user&#x27;</span>,<span class="string">&#x27;sysManage&#x27;</span>,<span class="string">&#x27;系统管理&#x27;</span>,<span class="string">&#x27;userManage&#x27;</span>,<span class="string">&#x27;0&#x27;</span>,<span class="string">&#x27;N&#x27;</span>,<span class="string">&#x27;0&#x27;</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> `x_menu` (`menu_id`, `component`, `path`, `redirect`, `name`, `title`, `icon`, `parent_id`, `is_leaf`, `hidden`) <span class="keyword">values</span>(<span class="string">&#x27;2&#x27;</span>,<span class="string">&#x27;sys/user&#x27;</span>,<span class="string">&#x27;user&#x27;</span>,<span class="keyword">NULL</span>,<span class="string">&#x27;userList&#x27;</span>,<span class="string">&#x27;用户列表&#x27;</span>,<span class="string">&#x27;user&#x27;</span>,<span class="string">&#x27;1&#x27;</span>,<span class="string">&#x27;Y&#x27;</span>,<span class="string">&#x27;0&#x27;</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> `x_menu` (`menu_id`, `component`, `path`, `redirect`, `name`, `title`, `icon`, `parent_id`, `is_leaf`, `hidden`) <span class="keyword">values</span>(<span class="string">&#x27;3&#x27;</span>,<span class="string">&#x27;sys/role&#x27;</span>,<span class="string">&#x27;role&#x27;</span>,<span class="keyword">NULL</span>,<span class="string">&#x27;roleList&#x27;</span>,<span class="string">&#x27;角色列表&#x27;</span>,<span class="string">&#x27;roleManage&#x27;</span>,<span class="string">&#x27;1&#x27;</span>,<span class="string">&#x27;Y&#x27;</span>,<span class="string">&#x27;0&#x27;</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> `x_menu` (`menu_id`, `component`, `path`, `redirect`, `name`, `title`, `icon`, `parent_id`, `is_leaf`, `hidden`) <span class="keyword">values</span>(<span class="string">&#x27;4&#x27;</span>,<span class="string">&#x27;Layout&#x27;</span>,<span class="string">&#x27;/test&#x27;</span>,<span class="string">&#x27;/test/test1&#x27;</span>,<span class="string">&#x27;test&#x27;</span>,<span class="string">&#x27;功能测试&#x27;</span>,<span class="string">&#x27;form&#x27;</span>,<span class="string">&#x27;0&#x27;</span>,<span class="string">&#x27;N&#x27;</span>,<span class="string">&#x27;0&#x27;</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> `x_menu` (`menu_id`, `component`, `path`, `redirect`, `name`, `title`, `icon`, `parent_id`, `is_leaf`, `hidden`) <span class="keyword">values</span>(<span class="string">&#x27;5&#x27;</span>,<span class="string">&#x27;test/test1&#x27;</span>,<span class="string">&#x27;test1&#x27;</span>,<span class="string">&#x27;&#x27;</span>,<span class="string">&#x27;test1&#x27;</span>,<span class="string">&#x27;测试点一&#x27;</span>,<span class="string">&#x27;form&#x27;</span>,<span class="string">&#x27;4&#x27;</span>,<span class="string">&#x27;Y&#x27;</span>,<span class="string">&#x27;0&#x27;</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> `x_menu` (`menu_id`, `component`, `path`, `redirect`, `name`, `title`, `icon`, `parent_id`, `is_leaf`, `hidden`) <span class="keyword">values</span>(<span class="string">&#x27;6&#x27;</span>,<span class="string">&#x27;test/test2&#x27;</span>,<span class="string">&#x27;test2&#x27;</span>,<span class="string">&#x27;&#x27;</span>,<span class="string">&#x27;test2&#x27;</span>,<span class="string">&#x27;测试点二&#x27;</span>,<span class="string">&#x27;form&#x27;</span>,<span class="string">&#x27;4&#x27;</span>,<span class="string">&#x27;Y&#x27;</span>,<span class="string">&#x27;0&#x27;</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> `x_menu` (`menu_id`, `component`, `path`, `redirect`, `name`, `title`, `icon`, `parent_id`, `is_leaf`, `hidden`) <span class="keyword">values</span>(<span class="string">&#x27;7&#x27;</span>,<span class="string">&#x27;test/test3&#x27;</span>,<span class="string">&#x27;test3&#x27;</span>,<span class="string">&#x27;&#x27;</span>,<span class="string">&#x27;test3&#x27;</span>,<span class="string">&#x27;测试点三&#x27;</span>,<span class="string">&#x27;form&#x27;</span>,<span class="string">&#x27;4&#x27;</span>,<span class="string">&#x27;Y&#x27;</span>,<span class="string">&#x27;0&#x27;</span>);</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="3-2-3-后端"><a href="#3-2-3-后端" class="headerlink" title="3.2.3 后端"></a>3.2.3 后端</h3><p>Menu类新增</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@TableField(exist = false)</span></span><br><span class="line"><span class="meta">@JsonInclude(JsonInclude.Include.NON_EMPTY)</span></span><br><span class="line"><span class="keyword">private</span> List&lt;Menu&gt; children;</span><br><span class="line"></span><br><span class="line"><span class="meta">@TableField(exist = false)</span></span><br><span class="line"><span class="keyword">private</span> Map&lt;String,Object&gt; meta = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line"><span class="keyword">public</span> Map&lt;String,Object&gt; <span class="title function_">getMeta</span><span class="params">()</span>&#123;</span><br><span class="line">    meta.put(<span class="string">&quot;title&quot;</span>,<span class="built_in">this</span>.title);</span><br><span class="line">    meta.put(<span class="string">&quot;icon&quot;</span>,<span class="built_in">this</span>.icon);</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.meta;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>MenuController</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/menu&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MenuController</span> &#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> IMenuService menuService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping</span></span><br><span class="line">    <span class="keyword">public</span> Result&lt;?&gt; getAllMenu()&#123;</span><br><span class="line">        List&lt;Menu&gt; menuList =  menuService.getAllMenu();</span><br><span class="line">        <span class="keyword">return</span> Result.success(menuList);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>MenuSeviceImpl</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> List&lt;Menu&gt; <span class="title function_">getAllMenu</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="comment">// 一级菜单</span></span><br><span class="line">    LambdaQueryWrapper&lt;Menu&gt; wrapper = <span class="keyword">new</span> <span class="title class_">LambdaQueryWrapper</span>();</span><br><span class="line">    wrapper.eq(Menu::getParentId,<span class="number">0</span>);</span><br><span class="line">    List&lt;Menu&gt; menuList = <span class="built_in">this</span>.list(wrapper);</span><br><span class="line">    <span class="comment">// 子菜单</span></span><br><span class="line">    setMenuChildren(menuList);</span><br><span class="line">    <span class="keyword">return</span> menuList;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">setMenuChildren</span><span class="params">(List&lt;Menu&gt; menuList)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(menuList != <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">for</span> (Menu menu:menuList) &#123;</span><br><span class="line">            LambdaQueryWrapper&lt;Menu&gt; subWrapper = <span class="keyword">new</span> <span class="title class_">LambdaQueryWrapper</span>();</span><br><span class="line">            subWrapper.eq(Menu::getParentId, menu.getMenuId());</span><br><span class="line">            List&lt;Menu&gt; subMenuList = <span class="built_in">this</span>.list(subWrapper);</span><br><span class="line">            menu.setChildren(subMenuList);</span><br><span class="line">            <span class="comment">// 递归</span></span><br><span class="line">            setMenuChildren(subMenuList);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="3-3-角色权限新增提交"><a href="#3-3-角色权限新增提交" class="headerlink" title="3.3 角色权限新增提交"></a>3.3 角色权限新增提交</h2><h3 id="3-3-1-前端"><a href="#3-3-1-前端" class="headerlink" title="3.3.1 前端"></a>3.3.1 前端</h3><p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20230902140912474.png" alt="image-20230902140912474"></p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20230902140949333.png" alt="image-20230902140949333"></p>
+<h3 id="3-3-2-后端"><a href="#3-3-2-后端" class="headerlink" title="3.3.2 后端"></a>3.3.2 后端</h3><p>Role</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20230902141029574.png" alt="image-20230902141029574"></p>
+<p>RoleServiceImpl</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20230902141116992.png" alt="image-20230902141116992"></p>
+<h2 id="3-4-角色权限回显"><a href="#3-4-角色权限回显" class="headerlink" title="3.4 角色权限回显"></a>3.4 角色权限回显</h2><h3 id="3-4-1-前端"><a href="#3-4-1-前端" class="headerlink" title="3.4.1 前端"></a>3.4.1 前端</h3><p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20230902153733268.png" alt="image-20230902153733268"></p>
+<h3 id="3-4-2-后端"><a href="#3-4-2-后端" class="headerlink" title="3.4.2 后端"></a>3.4.2 后端</h3><p>roleMenuMapper接口</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">RoleMenuMapper</span> <span class="keyword">extends</span> <span class="title class_">BaseMapper</span>&lt;RoleMenu&gt; &#123;</span><br><span class="line">    <span class="comment">//角色权限回写</span></span><br><span class="line">    <span class="keyword">public</span> List&lt;Integer&gt; <span class="title function_">getMenuIdListByRoleId</span><span class="params">(Integer roleId)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>RoleServiceImpl</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//角色权限回写</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Role <span class="title function_">getRoleById</span><span class="params">(Integer id)</span> &#123;</span><br><span class="line">        <span class="type">Role</span> <span class="variable">role</span> <span class="operator">=</span> <span class="built_in">this</span>.baseMapper.selectById(id);</span><br><span class="line">        List&lt;Integer&gt; menuIdList = roleMenuMapper.getMenuIdListByRoleId(id);</span><br><span class="line">        role.setMenuIdList(menuIdList);</span><br><span class="line">        <span class="keyword">return</span> role;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>RoleMenuMapper.xml</p>
+<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">mapper</span> <span class="keyword">PUBLIC</span> <span class="string">&quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;</span> <span class="string">&quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">&quot;com.example.springbootvue.sys.mapper.RoleMenuMapper&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--  角色权限回写   --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;getMenuIdListByRoleId&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;Integer&quot;</span> <span class="attr">resultType</span>=<span class="string">&quot;Integer&quot;</span>&gt;</span></span><br><span class="line">        select  a.menu_id</span><br><span class="line">        from x_role_menu a, x_menu b</span><br><span class="line">        where a.menu_id = b.menu_id</span><br><span class="line">          and b.is_leaf = &#x27;Y&#x27;</span><br><span class="line">          and a.role_id = #&#123;roleId&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+
+<h2 id="3-5-角色权限修改-删除"><a href="#3-5-角色权限修改-删除" class="headerlink" title="3.5 角色权限修改&amp;删除"></a>3.5 角色权限修改&amp;删除</h2><h3 id="3-5-1-后端"><a href="#3-5-1-后端" class="headerlink" title="3.5.1 后端"></a>3.5.1 后端</h3><p>RoleServiceImpl新增</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="meta">@Transactional</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">updateRole</span><span class="params">(Role role)</span> &#123;</span><br><span class="line">        <span class="comment">//修改角色表</span></span><br><span class="line">        <span class="built_in">this</span>.baseMapper.updateById(role);</span><br><span class="line">        <span class="comment">//删除原有权限</span></span><br><span class="line">        LambdaQueryWrapper&lt;RoleMenu&gt; wrapper = <span class="keyword">new</span> <span class="title class_">LambdaQueryWrapper</span>&lt;&gt;();</span><br><span class="line">        wrapper.eq(RoleMenu::getRoleId,role.getRoleId());</span><br><span class="line">        roleMenuMapper.delete(wrapper);</span><br><span class="line">        <span class="comment">//新增权限</span></span><br><span class="line">        <span class="keyword">if</span>(<span class="literal">null</span> != role.getMenuIdList())&#123;</span><br><span class="line">            <span class="keyword">for</span> (Integer menuId : role.getMenuIdList()) &#123;</span><br><span class="line">                roleMenuMapper.insert(<span class="keyword">new</span> <span class="title class_">RoleMenu</span>(<span class="literal">null</span>,role.getRoleId(),menuId));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>RoleSeviceImpl 删除角色</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="meta">@Transactional</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">deleteRoleById</span><span class="params">(Integer id)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.baseMapper.deleteById(id);</span><br><span class="line">        <span class="comment">//删除原有权限</span></span><br><span class="line">        LambdaQueryWrapper&lt;RoleMenu&gt; wrapper = <span class="keyword">new</span> <span class="title class_">LambdaQueryWrapper</span>&lt;&gt;();</span><br><span class="line">        wrapper.eq(RoleMenu::getRoleId,id);</span><br><span class="line">        roleMenuMapper.delete(wrapper);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>IRoleService新增</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">updateRole</span><span class="params">(Role role)</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">deleteRoleById</span><span class="params">(Integer id)</span>;</span><br></pre></td></tr></table></figure></div>
+
+<h1 id="4-用户角色设置"><a href="#4-用户角色设置" class="headerlink" title="4.用户角色设置"></a>4.用户角色设置</h1><h2 id="4-1-角色的显示"><a href="#4-1-角色的显示" class="headerlink" title="4.1 角色的显示"></a>4.1 角色的显示</h2><h3 id="4-1-1-前端"><a href="#4-1-1-前端" class="headerlink" title="4.1.1 前端"></a>4.1.1 前端</h3><p>roleManage.js</p>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 查询所有角色列表</span></span><br><span class="line"><span class="title function_">getAllRole</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">request</span>(&#123;</span><br><span class="line">        <span class="attr">url</span>: <span class="string">&#x27;/role/all&#x27;</span>,</span><br><span class="line">        <span class="attr">method</span>: <span class="string">&#x27;get&#x27;</span></span><br><span class="line">    &#125;);</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></div>
+
+<p>user.vue</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20230902161442821.png" alt="image-20230902161442821"></p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20230902161511985.png" alt="image-20230902161511985"></p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20230902161555868.png" alt="image-20230902161555868"></p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20230902161628464.png" alt="image-20230902161628464"></p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20230902161652936.png" alt="image-20230902161652936"></p>
+<h3 id="4-1-2-后端"><a href="#4-1-2-后端" class="headerlink" title="4.1.2 后端"></a>4.1.2 后端</h3><p>RoleController</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ApiOperation(&quot;获取所有角色信息&quot;)</span></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/all&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> Result&lt;List&lt;Role&gt;&gt; <span class="title function_">getAllRole</span><span class="params">()</span>&#123;</span><br><span class="line">        List&lt;Role&gt; roleList = roleService.list();</span><br><span class="line">        <span class="keyword">return</span> Result.success(roleList);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="4-2-用户角色提交"><a href="#4-2-用户角色提交" class="headerlink" title="4.2 用户角色提交"></a>4.2 用户角色提交</h2><h3 id="4-2-1-后端"><a href="#4-2-1-后端" class="headerlink" title="4.2.1 后端"></a>4.2.1 后端</h3><p>User新增</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@TableField(exist = false)</span></span><br><span class="line">    <span class="keyword">private</span> List&lt;Integer&gt; roleIdList;</span><br></pre></td></tr></table></figure></div>
+
+<p>UserServiceImpl</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="meta">@Transactional</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">addUser</span><span class="params">(User user)</span> &#123;</span><br><span class="line">        <span class="comment">//写入用户表</span></span><br><span class="line">        <span class="built_in">this</span>.baseMapper.insert(user);</span><br><span class="line">        <span class="comment">//写入用户角色表</span></span><br><span class="line">        List&lt;Integer&gt; roleIdList = user.getRoleIdList();</span><br><span class="line">        <span class="keyword">if</span>(roleIdList!= <span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="keyword">for</span> (Integer roleId : roleIdList) &#123;</span><br><span class="line">                userRoleMapper.insert(<span class="keyword">new</span> <span class="title class_">UserRole</span>(<span class="literal">null</span>, user.getId(), roleId));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="4-3-角色回显"><a href="#4-3-角色回显" class="headerlink" title="4.3 角色回显"></a>4.3 角色回显</h2><h3 id="4-3-1-后端"><a href="#4-3-1-后端" class="headerlink" title="4.3.1 后端"></a>4.3.1 后端</h3><p>UserServiceImpl</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> User <span class="title function_">geUsertById</span><span class="params">(Integer id)</span> &#123;</span><br><span class="line">        <span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> <span class="built_in">this</span>.baseMapper.selectById(id);</span><br><span class="line">        LambdaQueryWrapper&lt;UserRole&gt; wrapper = <span class="keyword">new</span> <span class="title class_">LambdaQueryWrapper</span>&lt;&gt;();</span><br><span class="line">        wrapper.eq(UserRole::getUserId,id);</span><br><span class="line">        List&lt;UserRole&gt; userRoleList = userRoleMapper.selectList(wrapper);</span><br><span class="line">        List&lt;Integer&gt; roleIdList = userRoleList.stream().</span><br><span class="line">                map(userRole -&gt; &#123;</span><br><span class="line">                    <span class="keyword">return</span> userRole.getRoleId();</span><br><span class="line">                &#125;)</span><br><span class="line">                .collect(Collectors.toList());</span><br><span class="line">        user.setRoleIdList(roleIdList);</span><br><span class="line">        <span class="keyword">return</span> user;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="4-4-用户角色的修改"><a href="#4-4-用户角色的修改" class="headerlink" title="4.4 用户角色的修改"></a>4.4 用户角色的修改</h2><h3 id="4-4-1-后端"><a href="#4-4-1-后端" class="headerlink" title="4.4.1 后端"></a>4.4.1 后端</h3><p>UserServiceImpl</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="meta">@Transactional</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">updateUser</span><span class="params">(User user)</span> &#123;</span><br><span class="line">        <span class="comment">//更新用户表</span></span><br><span class="line">        <span class="built_in">this</span>.baseMapper.updateById(user);</span><br><span class="line">        <span class="comment">//清除原有角色</span></span><br><span class="line">        LambdaQueryWrapper&lt;UserRole&gt; wrapper = <span class="keyword">new</span> <span class="title class_">LambdaQueryWrapper</span>&lt;&gt;();</span><br><span class="line">        wrapper.eq(UserRole::getUserId,user.getId());</span><br><span class="line">        userRoleMapper.delete(wrapper);</span><br><span class="line">        <span class="comment">//设置新的角色</span></span><br><span class="line">        List&lt;Integer&gt; roleIdList = user.getRoleIdList();</span><br><span class="line">        <span class="keyword">if</span>(roleIdList!= <span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="keyword">for</span> (Integer roleId : roleIdList) &#123;</span><br><span class="line">                userRoleMapper.insert(<span class="keyword">new</span> <span class="title class_">UserRole</span>(<span class="literal">null</span>, user.getId(), roleId));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="4-5用户角色的删除"><a href="#4-5用户角色的删除" class="headerlink" title="4.5用户角色的删除"></a>4.5用户角色的删除</h2><h3 id="4-5-1-后端"><a href="#4-5-1-后端" class="headerlink" title="4.5.1 后端"></a>4.5.1 后端</h3><p>UserServiceImpl</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">deleteUserById</span><span class="params">(Integer id)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.baseMapper.deleteById(id);</span><br><span class="line">        <span class="comment">//清除原有角色</span></span><br><span class="line">        LambdaQueryWrapper&lt;UserRole&gt; wrapper = <span class="keyword">new</span> <span class="title class_">LambdaQueryWrapper</span>&lt;&gt;();</span><br><span class="line">        wrapper.eq(UserRole::getUserId,id);</span><br><span class="line">        userRoleMapper.delete(wrapper);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></div>
+
+<h1 id="5-动态路由"><a href="#5-动态路由" class="headerlink" title="5.动态路由"></a>5.动态路由</h1><h2 id="5-1-动态路由上"><a href="#5-1-动态路由上" class="headerlink" title="5.1 动态路由上"></a>5.1 动态路由上</h2><h3 id="5-1-1-后端"><a href="#5-1-1-后端" class="headerlink" title="5.1.1 后端"></a>5.1.1 后端</h3><p>MenuMapper.xml</p>
+<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;getMenuListByUserId&quot;</span> <span class="attr">resultType</span>=<span class="string">&quot;com.example.springbootvue.sys.entity.Menu&quot;</span>&gt;</span></span><br><span class="line">       select</span><br><span class="line">           distinct a.*</span><br><span class="line">       from x_menu a,</span><br><span class="line">            x_role_menu b,</span><br><span class="line">            x_user_role c</span><br><span class="line">       where a.menu_id = b.menu_id</span><br><span class="line">       and b.role_id = c.role_id</span><br><span class="line">       and c.user_id = #&#123;userId&#125;</span><br><span class="line">       and a.parent_id = #&#123;pid&#125;</span><br><span class="line">   <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+
+<p>yml</p>
+<div class="highlight-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">type-aliases-package:</span> <span class="string">com.example.*.entity</span></span><br></pre></td></tr></table></figure></div>
+
+<p>MenuMapper.java</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">MenuMapper</span> <span class="keyword">extends</span> <span class="title class_">BaseMapper</span>&lt;Menu&gt; &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> List&lt;Menu&gt; <span class="title function_">getMenuListByUserId</span><span class="params">(<span class="meta">@Param(&quot;userId&quot;)</span> Integer userId, <span class="meta">@Param(&quot;pid&quot;)</span> Integer pid)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>MenuServiceImpl</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> List&lt;Menu&gt; <span class="title function_">getMenuListByUserId</span><span class="params">(Integer userId)</span> &#123;</span><br><span class="line">        <span class="comment">//一级菜单</span></span><br><span class="line">        List&lt;Menu&gt; menuList = <span class="built_in">this</span>.baseMapper.getMenuListByUserId(userId, <span class="number">0</span>);</span><br><span class="line">        <span class="comment">//子菜单</span></span><br><span class="line">        setMenuChildrenByUserId(userId, menuList);</span><br><span class="line">        <span class="keyword">return</span> menuList;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">setMenuChildrenByUserId</span><span class="params">(Integer userId, List&lt;Menu&gt; menuList)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(menuList != <span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="keyword">for</span> (Menu menu : menuList) &#123;</span><br><span class="line">                List&lt;Menu&gt; subMenuList = <span class="built_in">this</span>.baseMapper.getMenuListByUserId(userId, menu.getMenuId());</span><br><span class="line">                menu.setChildren(subMenuList);</span><br><span class="line">                <span class="comment">//递归</span></span><br><span class="line">                setMenuChildrenByUserId(userId,subMenuList);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>通过user&#x2F;info接口返回数据</p>
+<p>UserServiceImpl</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20230902173227289.png" alt="image-20230902173227289"></p>
+<h2 id="5-2-动态路由下"><a href="#5-2-动态路由下" class="headerlink" title="5.2 动态路由下"></a>5.2 动态路由下</h2><h3 id="5-2-1-前端"><a href="#5-2-1-前端" class="headerlink" title="5.2.1 前端"></a>5.2.1 前端</h3><p>（1）修改前端路由配置 src&#x2F;router&#x2F;index.js，路由保留一下部分</p>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> constantRoutes = [</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>: <span class="string">&#x27;/login&#x27;</span>,</span><br><span class="line">    <span class="attr">component</span>: <span class="function">() =&gt;</span> <span class="keyword">import</span>(<span class="string">&#x27;@/views/login/index&#x27;</span>),</span><br><span class="line">    <span class="attr">hidden</span>: <span class="literal">true</span></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>: <span class="string">&#x27;/404&#x27;</span>,</span><br><span class="line">    <span class="attr">component</span>: <span class="function">() =&gt;</span> <span class="keyword">import</span>(<span class="string">&#x27;@/views/404&#x27;</span>),</span><br><span class="line">    <span class="attr">hidden</span>: <span class="literal">true</span></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>: <span class="string">&#x27;/&#x27;</span>,</span><br><span class="line">    <span class="attr">component</span>: <span class="title class_">Layout</span>,</span><br><span class="line">    <span class="attr">redirect</span>: <span class="string">&#x27;/dashboard&#x27;</span>,</span><br><span class="line">    <span class="attr">children</span>: [&#123;</span><br><span class="line">      <span class="attr">path</span>: <span class="string">&#x27;dashboard&#x27;</span>,</span><br><span class="line">      <span class="attr">name</span>: <span class="string">&#x27;Dashboard&#x27;</span>,</span><br><span class="line">      <span class="attr">component</span>: <span class="function">() =&gt;</span> <span class="keyword">import</span>(<span class="string">&#x27;@/views/dashboard/index&#x27;</span>),</span><br><span class="line">      <span class="attr">meta</span>: &#123; <span class="attr">title</span>: <span class="string">&#x27;神盾局特攻管理系统&#x27;</span>, <span class="attr">icon</span>: <span class="string">&#x27;dashboard&#x27;</span> &#125;</span><br><span class="line">    &#125;]</span><br><span class="line">  &#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure></div>
+
+<p>（2）获取菜单数据保存到Vuex</p>
+<p>src&#x2F;store&#x2F;modules&#x2F;user.js</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20230902174129641.png" alt="image-20230902174129641"></p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20230902174145473.png" alt="image-20230902174145473"></p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20230902174210421.png" alt="image-20230902174210421"></p>
+<p>src&#x2F;store&#x2F;getters.js</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20230902174247337.png" alt="image-20230902174247337"></p>
+<p>（3）路由转换</p>
+<p>src&#x2F;permission.js</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20230902174444454.png" alt="image-20230902174444454"></p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20230902174612681.png" alt="image-20230902174612681"></p>
+<p>将一下代码放到最后面</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20230902174716515.png" alt="image-20230902174716515"></p>
+<p>（4）路由合并</p>
+<p>src\layout\components\Sidebar\index.vue</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20230902175004795.png" alt="image-20230902175004795"></p>
+<p>动态路由下添加的代码：</p>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 路由转换</span></span><br><span class="line"><span class="keyword">let</span> myRoutes = <span class="title function_">myFilterAsyncRoutes</span>(store.<span class="property">getters</span>.<span class="property">menuList</span>);</span><br><span class="line"><span class="comment">// 404</span></span><br><span class="line">myRoutes.<span class="title function_">push</span>(&#123;</span><br><span class="line">    <span class="attr">path</span>: <span class="string">&#x27;*&#x27;</span>,</span><br><span class="line">    <span class="attr">redirect</span>: <span class="string">&#x27;/404&#x27;</span>,</span><br><span class="line">    <span class="attr">hidden</span>: <span class="literal">true</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 动态添加路由</span></span><br><span class="line">router.<span class="title function_">addRoutes</span>(myRoutes);</span><br><span class="line"><span class="comment">// 存至全局变量</span></span><br><span class="line"><span class="variable language_">global</span>.<span class="property">myRoutes</span> = myRoutes;</span><br><span class="line"><span class="title function_">next</span>(&#123;...to,<span class="attr">replace</span>:<span class="literal">true</span>&#125;)  <span class="comment">// 防止刷新后页面空白</span></span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">myFilterAsyncRoutes</span>(<span class="params">menuList</span>) &#123;</span><br><span class="line">  menuList.<span class="title function_">filter</span>(<span class="function"><span class="params">menu</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (menu.<span class="property">component</span> === <span class="string">&#x27;Layout&#x27;</span>) &#123;</span><br><span class="line">      menu.<span class="property">component</span> = <span class="title class_">Layout</span></span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(menu.<span class="property">component</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      menu.<span class="property">component</span> = <span class="built_in">require</span>(<span class="string">`@/views/<span class="subst">$&#123;menu.component&#125;</span>.vue`</span>).<span class="property">default</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 递归处理子菜单</span></span><br><span class="line">    <span class="keyword">if</span> (menu.<span class="property">children</span> &amp;&amp; menu.<span class="property">children</span>.<span class="property">length</span>) &#123;</span><br><span class="line">      menu.<span class="property">children</span> = <span class="title function_">myFilterAsyncRoutes</span>(menu.<span class="property">children</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="keyword">return</span> menuList;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li><strong>标题:</strong> SpringBoot+Vue前后端分离实践二(完结撒花)</li>
+        <li><strong>作者:</strong> Lynn</li>
+        <li><strong>创建于:</strong> 2023-09-01 14:16:11</li>
+        
+            <li>
+                <strong>更新于:</strong> 2023-09-02 18:05:08
+            </li>
+        
+        <li>
+            <strong>链接:</strong> https://redefine.ohevan.com/2023/09/01/SpringBoot-Vue前后端分离实践二/
+        </li>
+        <li>
+            <strong>版权声明:</strong> 本文章采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a> 进行许可。
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/SpringBoot/">#SpringBoot</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/Vue/">#Vue</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/MyBatisPlus/">#MyBatisPlus</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                        rel="next"
+                        href="/2023/08/31/SpringCloud/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">SpringCloud</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+
+        
+            <div class="comment-container">
+                <div class="comments-container pjax">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fa-solid fa-comments"></i>&nbsp;评论
+    </div>
+    
+
+        
+            
+    <div id="gitalk-container"></div>
+    <script data-swup-reload-script
+            src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+    <script data-swup-reload-script>
+
+        function loadGitalk() {
+            let __gitalk__pathname = decodeURI(location.pathname);
+            const __gitalk__pathnameLength = __gitalk__pathname.length;
+            const __gitalk__pathnameMaxLength = 50;
+            if (__gitalk__pathnameLength > __gitalk__pathnameMaxLength) {
+                __gitalk__pathname = __gitalk__pathname.substring(0, __gitalk__pathnameMaxLength - 3) + '...';
+            }
+
+            try {
+                Gitalk && new Gitalk({
+                    clientID: '0aee6dd76da0f8333ddb',
+                    clientSecret: '5be1d41b4ea0aed716ca11920982ac3f2dd23f9b',
+                    repo: 'Gitalk',
+                    owner: 'L1ynness',
+                    admin: ['L1ynness'],
+                    id: __gitalk__pathname,
+                    language: 'zh-CN'
+                }).render('gitalk-container');
+
+            } catch (e) {
+                window.Gitalk = null;
+            }
+        }
+
+        if ('true') {
+            const loadGitalkTimeout = setTimeout(() => {
+                loadGitalk();
+                clearTimeout(loadGitalkTimeout);
+            }, 1000);
+        } else {
+            window.addEventListener('DOMContentLoaded', loadGitalk);
+        }
+    </script>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+
+    
+        <div class="toc-content-container">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">此页目录</div>
+        <div class="page-title">SpringBoot+Vue前后端分离实践二(完结撒花)</div>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-JWT%E6%95%B4%E5%90%88"><span class="nav-text">1.JWT整合</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-JWT%E4%BE%9D%E8%B5%96"><span class="nav-text">1.1 JWT依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-JWTUtil"><span class="nav-text">1.2 JWTUtil</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-1-junit%E6%B5%8B%E8%AF%95token"><span class="nav-text">1.2.1 junit测试token</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-2-UserServiceImpl%E6%95%B4%E5%90%88JWT"><span class="nav-text">1.2.2 UserServiceImpl整合JWT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-3-%E6%B5%8B%E8%AF%95"><span class="nav-text">1.2.3 测试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-%E7%99%BB%E5%BD%95%E5%90%8E%E7%BB%AD%E8%AF%B7%E6%B1%82%E5%A6%82%E4%BD%95%E9%AA%8C%E8%AF%81JWT%EF%BC%9F"><span class="nav-text">1.3 登录后续请求如何验证JWT？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-JWT%E9%AA%8C%E8%AF%81%E6%8B%A6%E6%88%AA%E5%99%A8"><span class="nav-text">1.4 JWT验证拦截器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-1-interceptor%E5%8C%85%E4%B8%8B%E7%9A%84%E6%8B%A6%E6%88%AA%E5%99%A8"><span class="nav-text">1.4.1 interceptor包下的拦截器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-2-config%E5%8C%85%E4%B8%8B%E7%9A%84%E6%8B%A6%E6%88%AA%E5%99%A8%E9%85%8D%E7%BD%AE"><span class="nav-text">1.4.2 config包下的拦截器配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-3-%E6%B5%8B%E8%AF%95"><span class="nav-text">1.4.3 测试</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-Swagger%E6%95%B4%E5%90%88"><span class="nav-text">2.Swagger整合</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-Swagger%E4%BE%9D%E8%B5%96"><span class="nav-text">2.1 Swagger依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-Swagger%E9%85%8D%E7%BD%AE"><span class="nav-text">2.2 Swagger配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-Swagger%E6%8E%88%E6%9D%83%E9%85%8D%E7%BD%AE"><span class="nav-text">2.3 Swagger授权配置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E8%A7%92%E8%89%B2%E7%AE%A1%E7%90%86"><span class="nav-text">3.角色管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD"><span class="nav-text">3.1 基本功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-1-%E9%A2%84%E8%A7%88%E6%95%88%E6%9E%9C"><span class="nav-text">3.1.1 预览效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-2-%E5%89%8D%E7%AB%AF"><span class="nav-text">3.1.2 前端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-3-%E5%90%8E%E7%AB%AF"><span class="nav-text">3.1.3 后端</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E8%AE%BE%E7%BD%AE"><span class="nav-text">3.2 角色权限设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-1-%E5%89%8D%E7%AB%AF"><span class="nav-text">3.2.1 前端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-2-%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-text">3.2.2 数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-3-%E5%90%8E%E7%AB%AF"><span class="nav-text">3.2.3 后端</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%96%B0%E5%A2%9E%E6%8F%90%E4%BA%A4"><span class="nav-text">3.3 角色权限新增提交</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-1-%E5%89%8D%E7%AB%AF"><span class="nav-text">3.3.1 前端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-2-%E5%90%8E%E7%AB%AF"><span class="nav-text">3.3.2 后端</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E5%9B%9E%E6%98%BE"><span class="nav-text">3.4 角色权限回显</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-1-%E5%89%8D%E7%AB%AF"><span class="nav-text">3.4.1 前端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-2-%E5%90%8E%E7%AB%AF"><span class="nav-text">3.4.2 后端</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-5-%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E4%BF%AE%E6%94%B9-%E5%88%A0%E9%99%A4"><span class="nav-text">3.5 角色权限修改&amp;删除</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-1-%E5%90%8E%E7%AB%AF"><span class="nav-text">3.5.1 后端</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E7%94%A8%E6%88%B7%E8%A7%92%E8%89%B2%E8%AE%BE%E7%BD%AE"><span class="nav-text">4.用户角色设置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-%E8%A7%92%E8%89%B2%E7%9A%84%E6%98%BE%E7%A4%BA"><span class="nav-text">4.1 角色的显示</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-1-%E5%89%8D%E7%AB%AF"><span class="nav-text">4.1.1 前端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-2-%E5%90%8E%E7%AB%AF"><span class="nav-text">4.1.2 后端</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-%E7%94%A8%E6%88%B7%E8%A7%92%E8%89%B2%E6%8F%90%E4%BA%A4"><span class="nav-text">4.2 用户角色提交</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-1-%E5%90%8E%E7%AB%AF"><span class="nav-text">4.2.1 后端</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-%E8%A7%92%E8%89%B2%E5%9B%9E%E6%98%BE"><span class="nav-text">4.3 角色回显</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-1-%E5%90%8E%E7%AB%AF"><span class="nav-text">4.3.1 后端</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-4-%E7%94%A8%E6%88%B7%E8%A7%92%E8%89%B2%E7%9A%84%E4%BF%AE%E6%94%B9"><span class="nav-text">4.4 用户角色的修改</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-1-%E5%90%8E%E7%AB%AF"><span class="nav-text">4.4.1 后端</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-5%E7%94%A8%E6%88%B7%E8%A7%92%E8%89%B2%E7%9A%84%E5%88%A0%E9%99%A4"><span class="nav-text">4.5用户角色的删除</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-1-%E5%90%8E%E7%AB%AF"><span class="nav-text">4.5.1 后端</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1"><span class="nav-text">5.动态路由</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1%E4%B8%8A"><span class="nav-text">5.1 动态路由上</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-1-%E5%90%8E%E7%AB%AF"><span class="nav-text">5.1.1 后端</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1%E4%B8%8B"><span class="nav-text">5.2 动态路由下</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-1-%E5%89%8D%E7%AB%AF"><span class="nav-text">5.2.1 前端</span></a></li></ol></li></ol></li></ol>
+
+    </div>
+</div>
+        </div>
+    
+</div>
+
+
+
+                
+
+            </div>
+            
+            
+
+        </div>
+
+        <div class="main-content-footer">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2023&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">Lynn</a>
+        </div>
+        
+            <script data-swup-reload-script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv" class="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv" class="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv" class="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            <span class="powered-by-container">由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" href="https://hexo.io">Hexo</a> 驱动</span>
+                <br>
+            <span class="theme-version-container">主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.3.0</a></span>
+        </div>
+        
+        
+            <div>
+                博客已运行 <span class="odometer" id="runtime_days" ></span> 天 <span class="odometer" id="runtime_hours"></span> 小时 <span class="odometer" id="runtime_minutes"></span> 分钟 <span class="odometer" id="runtime_seconds"></span> 秒
+            </div>
+        
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fa-regular fa-comments"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-side-tools-container">
+        <div class="side-tools-container">
+    <ul class="hidden-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-font-adjust-minus flex-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-expand-width flex-center">
+            <i class="fa-regular fa-expand"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-dark-light-toggle flex-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="visible-tools-list">
+        <li class="right-bottom-tools toggle-tools-list flex-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fa-solid fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa-solid fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+
+</main>
+
+
+<script src="/js/libs/Swup.min.js"></script>
+
+<script src="/js/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/libs/SwupScrollPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+        ],
+        containers: ["#swup"],
+    });
+
+    swup.on("pageView", () => {
+        Global.refresh();
+    });
+
+    // if (document.readyState === "complete") {
+    //
+    // } else {
+    //     document.addEventListener("DOMContentLoaded", () => init());
+    // }
+</script>
+
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/layouts/navbarShrink.js"></script>
+
+<script src="/js/tools/scrollTopBottom.js"></script>
+
+<script src="/js/tools/lightDarkSwitch.js"></script>
+
+<script src="/js/layouts/categoryList.js"></script>
+
+
+
+    
+<script src="/js/tools/localSearch.js"></script>
+
+
+
+
+    
+<script src="/js/tools/codeBlock.js"></script>
+
+
+
+
+    
+<script src="/js/layouts/lazyload.js"></script>
+
+
+
+
+    
+<script src="/js/tools/runtime.js"></script>
+
+    
+<script src="/js/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/libs/Typed.min.js"></script>
+
+  
+<script src="/js/plugins/typed.js"></script>
+
+
+
+
+
+
+
+<div class="post-scripts" data-swup-reload-script>
+    
+        
+<script src="/js/tools/tocToggle.js"></script>
+
+<script src="/js/layouts/toc.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/plugins/tabs.js"></script>
+
+    
+</div>
+
+
+</body>
+</html>
