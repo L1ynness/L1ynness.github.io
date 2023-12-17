@@ -4374,6 +4374,11 @@
 <h2 id="5-3-HRRN高响应比优先调度算法（非抢占）"><a href="#5-3-HRRN高响应比优先调度算法（非抢占）" class="headerlink" title="5.3 HRRN高响应比优先调度算法（非抢占）"></a>5.3 HRRN高响应比优先调度算法（非抢占）</h2><p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217192710942.png" alt="image-20231217192710942"></p>
 <p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217192721953.png" alt="image-20231217192721953"></p>
 <h1 id="6-有效访问时间"><a href="#6-有效访问时间" class="headerlink" title="6.有效访问时间"></a>6.有效访问时间</h1><p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217192752793.png" alt="image-20231217192752793"></p>
+<h1 id="7-动态分区分配算法计算"><a href="#7-动态分区分配算法计算" class="headerlink" title="7.动态分区分配算法计算"></a>7.动态分区分配算法计算</h1><p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217220943551.png" alt="image-20231217220943551"></p>
+<h2 id="7-1-首次适应算法"><a href="#7-1-首次适应算法" class="headerlink" title="7.1 首次适应算法"></a>7.1 首次适应算法</h2><p>优先利用低地址中的空闲区</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217222032638.png" alt="image-20231217222032638"></p>
+<h2 id="7-3-最佳适应算法"><a href="#7-3-最佳适应算法" class="headerlink" title="7.3 最佳适应算法"></a>7.3 最佳适应算法</h2><p>优先分配空闲区（即存储空间递增的方式）</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217222455833.png" alt="image-20231217222455833"></p>
 ]]></content>
       <tags>
         <tag>操作系统复习</tag>
