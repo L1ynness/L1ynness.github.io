@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="Lynn">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="http://example.com/2023/12/17/操作系统大题复习/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+        <meta name="description" content="1.缺页问题1.1 FIFO先进先出 开局四缺一  此时到5，比长度，谁长替换谁  此时还是缺页，因为没找到5；同理接下来2最长，将2换成1，缺页；  同理将最长的3换成4，因为4在前面的5134里面，所以不缺页，5134照抄 最终，结果如下：  缺页率：5&#x2F;6 1.2 OPT最佳置换算法被淘汰的页面是在未来最长时间内不再被访问的页面 开局四缺一  对于5来说，5后面的就是未来的，被淘汰">
+<meta property="og:type" content="article">
+<meta property="og:title" content="操作系统大题复习">
+<meta property="og:url" content="http://example.com/2023/12/17/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%A7%E9%A2%98%E5%A4%8D%E4%B9%A0/index.html">
+<meta property="og:site_name" content="轻舟已过万重山">
+<meta property="og:description" content="1.缺页问题1.1 FIFO先进先出 开局四缺一  此时到5，比长度，谁长替换谁  此时还是缺页，因为没找到5；同理接下来2最长，将2换成1，缺页；  同理将最长的3换成4，因为4在前面的5134里面，所以不缺页，5134照抄 最终，结果如下：  缺页率：5&#x2F;6 1.2 OPT最佳置换算法被淘汰的页面是在未来最长时间内不再被访问的页面 开局四缺一  对于5来说，5后面的就是未来的，被淘汰">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/Resources/image-20231217150709846.png">
+<meta property="og:image" content="http://example.com/Resources/image-20231217150759760.png">
+<meta property="og:image" content="http://example.com/Resources/image-20231217150913957.png">
+<meta property="og:image" content="http://example.com/Resources/image-20231217151040463.png">
+<meta property="og:image" content="http://example.com/Resources/image-20231217151331190.png">
+<meta property="og:image" content="http://example.com/Resources/image-20231217151526667.png">
+<meta property="og:image" content="http://example.com/Resources/image-20231217152523372.png">
+<meta property="og:image" content="http://example.com/Resources/image-20231217152825815.png">
+<meta property="og:image" content="http://example.com/Resources/image-20231217152948906.png">
+<meta property="og:image" content="http://example.com/Resources/image-20231217153052923.png">
+<meta property="og:image" content="http://example.com/Resources/image-20231217153303897-170279838508519.png">
+<meta property="og:image" content="http://example.com/Resources/image-20231217153725059.png">
+<meta property="og:image" content="http://example.com/Resources/image-20231217153809202.png">
+<meta property="og:image" content="http://example.com/Resources/image-20231217153908623.png">
+<meta property="og:image" content="http://example.com/Resources/image-20231217154118421.png">
+<meta property="og:image" content="http://example.com/Resources/image-20231217154343096.png">
+<meta property="og:image" content="http://example.com/Resources/image-20231217154456058.png">
+<meta property="og:image" content="http://example.com/Resources/image-20231217155307541.png">
+<meta property="og:image" content="http://example.com/Resources/image-20231217160025430.png">
+<meta property="og:image" content="http://example.com/Resources/image-20231217160135658.png">
+<meta property="og:image" content="http://example.com/Resources/image-20231217160253417.png">
+<meta property="og:image" content="http://example.com/Resources/image-20231217160447828.png">
+<meta property="og:image" content="http://example.com/Resources/image-20231217161713754.png">
+<meta property="og:image" content="http://example.com/Resources/image-20231217161910539.png">
+<meta property="og:image" content="http://example.com/Resources/image-20231217162116460-170280129719336.png">
+<meta property="og:image" content="http://example.com/Resources/image-20231217162246719.png">
+<meta property="og:image" content="http://example.com/Resources/image-20231217162313294.png">
+<meta property="og:image" content="http://example.com/Resources/image-20231217162404620.png">
+<meta property="og:image" content="http://example.com/Resources/image-20231217162728820.png">
+<meta property="og:image" content="http://example.com/Resources/image-20231217162833387.png">
+<meta property="og:image" content="http://example.com/Resources/image-20231217170533313.png">
+<meta property="og:image" content="http://example.com/Resources/image-20231217191251108.png">
+<meta property="og:image" content="http://example.com/Resources/image-20231217191113772.png">
+<meta property="og:image" content="http://example.com/Resources/image-20231217191516133.png">
+<meta property="og:image" content="http://example.com/Resources/image-20231217191556633.png">
+<meta property="og:image" content="http://example.com/Resources/image-20231217191849889.png">
+<meta property="og:image" content="http://example.com/Resources/image-20231217191905314.png">
+<meta property="og:image" content="http://example.com/Resources/image-20231217192710942.png">
+<meta property="og:image" content="http://example.com/Resources/image-20231217192721953.png">
+<meta property="og:image" content="http://example.com/Resources/image-20231217192752793.png">
+<meta property="article:published_time" content="2023-12-17T06:57:51.000Z">
+<meta property="article:modified_time" content="2023-12-17T11:27:55.530Z">
+<meta property="article:author" content="Lynn">
+<meta property="article:tag" content="操作系统复习">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/Resources/image-20231217150709846.png">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/ghost.jpg" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/ghost.jpg">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="/images/ghost.jpg">
+    <!--- Page Info-->
+    
+    <title>
+        
+            操作系统大题复习 -
+        
+        A Lazy Dog的博客
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<link rel="stylesheet" href="/fonts/fonts.css">
+
+    
+<link rel="stylesheet" href="/fonts/Satoshi/satoshi.css">
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+    <!--- Font Part-->
+    
+    
+    
+    
+
+    <!--- Inject Part-->
+    
+    <script id="hexo-configurations">
+    let Global = window.Global || {};
+    Global.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.xml"};
+    Global.theme_config = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":true,"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"回看,轻舟已过万重山","subtitle":{"text":["前看,前路漫漫亦灿灿"],"hitokoto":{"enable":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":"trues","links":{"github":"https://github.com/L1ynness","zhihu":"https://www.zhihu.com/people/lynn-56-27-19"},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.3.0","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Github":{"path":"https://github.com/","icon":"fa-brands fa-github","navbar":null},"Learning":{"icon":"fa-solid fa-book","submenus":{"Cute Word":"https://thiscute.world/","教务系统":"https://webvpn-w1.gcu.edu.cn/login","四六级":"https://mp.weixin.qq.com/s/8m9J7sFST3gB4loysLbP1A","java全栈知识体系":"https://pdai.tech/"}}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"}}},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2022/8/17 11:45:14"};
+    Global.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+    Global.data_config = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="swup-progress-icon">
+            <i class="fa-solid fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container" id="swup">
+    
+
+    
+
+    <div class="main-content-container">
+        
+
+        <div class="main-content-header">
+            <header class="navbar-container">
+    
+    <div class="navbar-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                A Lazy Dog的博客
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-house"></i>
+                                        
+                                        首页
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    target="_blank" rel="noopener" href="https://github.com/"  >
+                                    
+                                        
+                                            <i class="fa-brands fa-github"></i>
+                                        
+                                        GITHUB
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="has-dropdown" 
+                                    href="#" onClick="return false;">
+                                    
+                                        
+                                            <i class="fa-solid fa-book"></i>
+                                        
+                                        LEARNING&nbsp;<i class="fa-solid fa-chevron-down"></i>
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                                    <ul class="sub-menu">
+                                    
+                                        <li>
+                                        <a target="_blank" rel="noopener" href="https://thiscute.world/">CUTE WORD
+                                        </a>
+                                        </li>
+                                    
+                                        <li>
+                                        <a target="_blank" rel="noopener" href="https://webvpn-w1.gcu.edu.cn/login">教务系统
+                                        </a>
+                                        </li>
+                                    
+                                        <li>
+                                        <a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/8m9J7sFST3gB4loysLbP1A">四六级
+                                        </a>
+                                        </li>
+                                    
+                                        <li>
+                                        <a target="_blank" rel="noopener" href="https://pdai.tech/">JAVA全栈知识体系
+                                        </a>
+                                        </li>
+                                    
+                                    </ul>
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i></div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div class="navbar-drawer">
+        <ul class="drawer-navbar-list">
+            
+                
+                    <li class="drawer-navbar-item flex-center">
+                        <a class="" 
+                        href="/"  >
+                             
+                                
+                                    <i class="fa-regular fa-house"></i>
+                                
+                                首页
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+                
+                    <li class="drawer-navbar-item flex-center">
+                        <a class="" 
+                        target="_blank" rel="noopener" href="https://github.com/"  >
+                             
+                                
+                                    <i class="fa-brands fa-github"></i>
+                                
+                                GITHUB
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+                
+                    <li class="drawer-navbar-item flex-center">
+                        <a class="has-dropdown" 
+                        href="#" onClick="return false;">
+                            
+                                
+                                    <i class="fa-solid fa-book"></i>
+                                
+                                LEARNING&nbsp;<i class="fa-solid fa-chevron-down"></i>
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                              
+                        
+                            <li class="dropdown-item flex-center">
+                                <a class="dropdown-item" target="_blank" rel="noopener" href="https://thiscute.world/">CUTE WORD</a>
+                            </li>
+                        
+                            <li class="dropdown-item flex-center">
+                                <a class="dropdown-item" target="_blank" rel="noopener" href="https://webvpn-w1.gcu.edu.cn/login">教务系统</a>
+                            </li>
+                        
+                            <li class="dropdown-item flex-center">
+                                <a class="dropdown-item" target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/8m9J7sFST3gB4loysLbP1A">四六级</a>
+                            </li>
+                        
+                            <li class="dropdown-item flex-center">
+                                <a class="dropdown-item" target="_blank" rel="noopener" href="https://pdai.tech/">JAVA全栈知识体系</a>
+                            </li>
+                        
+                    
+            
+
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="main-content-body">
+
+            
+
+            <div class="main-content">
+
+                
+                    <div class="post-page-container">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            
+                <h1 class="article-title-regular">操作系统大题复习</h1>
+            
+            </div>
+            
+                    
+        
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/ghost.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Lynn</span>
+                        
+                            <span class="author-label">Lv3</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2023-12-17 14:57:51</span>
+        <span class="mobile">2023-12-17 14:57:51</span>
+        <span class="hover-info">创建</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2023-12-17 19:27:55</span>
+            <span class="mobile">2023-12-17 19:27:55</span>
+            <span class="hover-info">更新</span>
+        </span>
+    
+
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/">操作系统复习</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="1-缺页问题"><a href="#1-缺页问题" class="headerlink" title="1.缺页问题"></a>1.缺页问题</h1><h2 id="1-1-FIFO先进先出"><a href="#1-1-FIFO先进先出" class="headerlink" title="1.1 FIFO先进先出"></a>1.1 FIFO先进先出</h2><p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217150709846.png" alt="image-20231217150709846"></p>
+<p>开局四缺一</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217150759760.png" alt="image-20231217150759760"></p>
+<p>此时到5，比长度，谁长替换谁</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217150913957.png" alt="image-20231217150913957"></p>
+<p>此时还是缺页，因为没找到5；同理接下来2最长，将2换成1，缺页；</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217151040463.png" alt="image-20231217151040463"></p>
+<p>同理将最长的3换成4，因为4在前面的5134里面，所以不缺页，5134照抄</p>
+<p>最终，结果如下：</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217151331190.png" alt="image-20231217151331190"></p>
+<p>缺页率：5&#x2F;6</p>
+<h2 id="1-2-OPT最佳置换算法"><a href="#1-2-OPT最佳置换算法" class="headerlink" title="1.2 OPT最佳置换算法"></a>1.2 OPT最佳置换算法</h2><p>被淘汰的页面是在未来最长时间内不再被访问的页面</p>
+<p>开局四缺一</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217151526667.png" alt="image-20231217151526667"></p>
+<p>对于5来说，5后面的就是未来的，<strong>被淘汰的页面将是在未来的最长时间内不再被访问的页面</strong></p>
+<p>现在1234数字里哪个数字离得最远</p>
+<p>此时替换掉3，以此类推</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217152523372.png" alt="image-20231217152523372"></p>
+<p>最后缺页率为1&#x2F;2</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217152825815.png" alt="image-20231217152825815"></p>
+<h2 id="1-3-LRU最近最少使用"><a href="#1-3-LRU最近最少使用" class="headerlink" title="1.3 LRU最近最少使用"></a>1.3 LRU最近最少使用</h2><p>替换最久未使用</p>
+<p>开局四缺一</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217152948906.png" alt="image-20231217152948906"></p>
+<p>因为1最久没使用（离得最远），所以替换1</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217153052923.png" alt="image-20231217153052923"></p>
+<p>变成</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217153303897-170279838508519.png" alt="image-20231217153303897"></p>
+<p>因为145都有，所以替换掉3</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217153725059.png" alt="image-20231217153725059"></p>
+<p>变成</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217153809202.png" alt="image-20231217153809202"></p>
+<p>3替换5，不缺页；5替换1，缺页，最后为</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217153908623.png" alt="image-20231217153908623"></p>
+<h1 id="2-计算物理地址"><a href="#2-计算物理地址" class="headerlink" title="2.计算物理地址"></a>2.计算物理地址</h1><p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217154118421.png" alt="image-20231217154118421"></p>
+<p>（1）求页号</p>
+<p>页号&#x3D;逻辑地址 % 每页字节数；页号为2</p>
+<p><strong>求余</strong></p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217154343096.png" alt="image-20231217154343096"></p>
+<p>（2）对页表</p>
+<p>页号为2，对应的块号就是6</p>
+<p>（3）算地址</p>
+<p>块长就是每页字节数</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217154456058.png" alt="image-20231217154456058"></p>
+<h1 id="3-银行家算法"><a href="#3-银行家算法" class="headerlink" title="3.银行家算法"></a>3.银行家算法</h1><p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217155307541.png" alt="image-20231217155307541"></p>
+<h2 id="3-1-判断在T0时刻的安全性"><a href="#3-1-判断在T0时刻的安全性" class="headerlink" title="3.1 判断在T0时刻的安全性"></a>3.1 判断在T0时刻的安全性</h2><p>解决方案：</p>
+<p>因为Available为332，所以当前所剩资源（Work）为332</p>
+<p>work+allocation：为计算机处理完当前进程后所剩资源</p>
+<p>观察Need，哪个满足332，就填哪个，进程P1和P3都可以，先写哪个都行</p>
+<p>因为Need &lt; work+allocation，所以P1</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217160025430.png" alt="image-20231217160025430"></p>
+<p>接下来是P3和P4</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217160135658.png" alt="image-20231217160135658"></p>
+<p>接下来，P2和P0都可以，最后为</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217160253417.png" alt="image-20231217160253417"></p>
+<p>所以可以安全执行，进程序列为P1,P3,P4,P2,P0</p>
+<p>因为各种资源的数量是10,5,7，如果最后一样则没有做错。</p>
+<h2 id="3-2-用算法检查"><a href="#3-2-用算法检查" class="headerlink" title="3.2 用算法检查"></a>3.2 用算法检查</h2><p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217160447828.png" alt="image-20231217160447828"></p>
+<p>因为Request为（1,0,2），所以Allocation要加上Request，Available要减去Request，Need要减去Request</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217161713754.png" alt="image-20231217161713754"></p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217161910539.png" alt="image-20231217161910539"></p>
+<h1 id="4-磁盘调度"><a href="#4-磁盘调度" class="headerlink" title="4.磁盘调度"></a>4.磁盘调度</h1><p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217162116460-170280129719336.png" alt="image-20231217162116460"></p>
+<h2 id="4-1-FCFS先来先服务"><a href="#4-1-FCFS先来先服务" class="headerlink" title="4.1 FCFS先来先服务"></a>4.1 FCFS先来先服务</h2><p>按时间顺序到达</p>
+<p>先写出磁头移动顺序：</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217162246719.png" alt="image-20231217162246719"></p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217162313294.png" alt="image-20231217162313294"></p>
+<h2 id="4-2-SSTF最短寻道时间优先"><a href="#4-2-SSTF最短寻道时间优先" class="headerlink" title="4.2 SSTF最短寻道时间优先"></a>4.2 SSTF最短寻道时间优先</h2><p>先对数字排序</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217162404620.png" alt="image-20231217162404620"></p>
+<p>从90开始，离哪个近走哪个</p>
+<h2 id="4-3-SCAN扫描算法"><a href="#4-3-SCAN扫描算法" class="headerlink" title="4.3 SCAN扫描算法"></a>4.3 SCAN扫描算法</h2><p>向左向右</p>
+<p>  <img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217162728820.png" alt="image-20231217162728820"></p>
+<h2 id="4-4-C-SCAN循环扫描算法"><a href="#4-4-C-SCAN循环扫描算法" class="headerlink" title="4.4 C-SCAN循环扫描算法"></a>4.4 C-SCAN循环扫描算法</h2><p>向左向右</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217162833387.png" alt="image-20231217162833387"></p>
+<h1 id="5-进程调度"><a href="#5-进程调度" class="headerlink" title="5.进程调度"></a>5.进程调度</h1><p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217170533313.png" alt="image-20231217170533313"></p>
+<h2 id="5-1-FCFS先来先服务"><a href="#5-1-FCFS先来先服务" class="headerlink" title="5.1 FCFS先来先服务"></a>5.1 FCFS先来先服务</h2><p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217191251108.png" alt="image-20231217191251108"></p>
+<p>等待时间&#x3D;开始时间-到达时间；</p>
+<p>周转时间&#x3D;结束时间-到达时间；</p>
+<p>平均等待时间&#x3D;等待时间&#x2F;进程数量；</p>
+<p>平均周转时间&#x3D;周转时间&#x2F;进程数量；</p>
+<p>带权周转时间&#x3D;周转时间&#x2F;执行时间；</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217191113772.png" alt="image-20231217191113772"></p>
+<h2 id="5-2-SJF短作业优先调度算法（非抢占）"><a href="#5-2-SJF短作业优先调度算法（非抢占）" class="headerlink" title="5.2 SJF短作业优先调度算法（非抢占）"></a>5.2 SJF短作业优先调度算法（非抢占）</h2><p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217191516133.png" alt="image-20231217191516133"></p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217191556633.png" alt="image-20231217191556633"></p>
+<h3 id="5-2-1-抢占"><a href="#5-2-1-抢占" class="headerlink" title="5.2.1 抢占"></a>5.2.1 抢占</h3><p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217191849889.png" alt="image-20231217191849889"></p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217191905314.png" alt="image-20231217191905314"></p>
+<h2 id="5-3-HRRN高响应比优先调度算法（非抢占）"><a href="#5-3-HRRN高响应比优先调度算法（非抢占）" class="headerlink" title="5.3 HRRN高响应比优先调度算法（非抢占）"></a>5.3 HRRN高响应比优先调度算法（非抢占）</h2><p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217192710942.png" alt="image-20231217192710942"></p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217192721953.png" alt="image-20231217192721953"></p>
+<h1 id="6-有效访问时间"><a href="#6-有效访问时间" class="headerlink" title="6.有效访问时间"></a>6.有效访问时间</h1><p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217192752793.png" alt="image-20231217192752793"></p>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li><strong>标题:</strong> 操作系统大题复习</li>
+        <li><strong>作者:</strong> Lynn</li>
+        <li><strong>创建于:</strong> 2023-12-17 14:57:51</li>
+        
+            <li>
+                <strong>更新于:</strong> 2023-12-17 19:27:55
+            </li>
+        
+        <li>
+            <strong>链接:</strong> https://redefine.ohevan.com/2023/12/17/操作系统大题复习/
+        </li>
+        <li>
+            <strong>版权声明:</strong> 本文章采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a> 进行许可。
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/">#操作系统复习</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                        rel="next"
+                        href="/2023/11/01/%E6%8C%A3%E5%80%BC%E5%88%86%E6%9E%90%E6%B3%95/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">计算题</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+
+        
+            <div class="comment-container">
+                <div class="comments-container pjax">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fa-solid fa-comments"></i>&nbsp;评论
+    </div>
+    
+
+        
+            
+    <div id="gitalk-container"></div>
+    <script data-swup-reload-script
+            src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+    <script data-swup-reload-script>
+
+        function loadGitalk() {
+            let __gitalk__pathname = decodeURI(location.pathname);
+            const __gitalk__pathnameLength = __gitalk__pathname.length;
+            const __gitalk__pathnameMaxLength = 50;
+            if (__gitalk__pathnameLength > __gitalk__pathnameMaxLength) {
+                __gitalk__pathname = __gitalk__pathname.substring(0, __gitalk__pathnameMaxLength - 3) + '...';
+            }
+
+            try {
+                Gitalk && new Gitalk({
+                    clientID: '0aee6dd76da0f8333ddb',
+                    clientSecret: '5be1d41b4ea0aed716ca11920982ac3f2dd23f9b',
+                    repo: 'Gitalk',
+                    owner: 'L1ynness',
+                    admin: ['L1ynness'],
+                    id: __gitalk__pathname,
+                    language: 'zh-CN'
+                }).render('gitalk-container');
+
+            } catch (e) {
+                window.Gitalk = null;
+            }
+        }
+
+        if ('true') {
+            const loadGitalkTimeout = setTimeout(() => {
+                loadGitalk();
+                clearTimeout(loadGitalkTimeout);
+            }, 1000);
+        } else {
+            window.addEventListener('DOMContentLoaded', loadGitalk);
+        }
+    </script>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+
+    
+        <div class="toc-content-container">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">此页目录</div>
+        <div class="page-title">操作系统大题复习</div>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E7%BC%BA%E9%A1%B5%E9%97%AE%E9%A2%98"><span class="nav-text">1.缺页问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-FIFO%E5%85%88%E8%BF%9B%E5%85%88%E5%87%BA"><span class="nav-text">1.1 FIFO先进先出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-OPT%E6%9C%80%E4%BD%B3%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95"><span class="nav-text">1.2 OPT最佳置换算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-LRU%E6%9C%80%E8%BF%91%E6%9C%80%E5%B0%91%E4%BD%BF%E7%94%A8"><span class="nav-text">1.3 LRU最近最少使用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E8%AE%A1%E7%AE%97%E7%89%A9%E7%90%86%E5%9C%B0%E5%9D%80"><span class="nav-text">2.计算物理地址</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E9%93%B6%E8%A1%8C%E5%AE%B6%E7%AE%97%E6%B3%95"><span class="nav-text">3.银行家算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-%E5%88%A4%E6%96%AD%E5%9C%A8T0%E6%97%B6%E5%88%BB%E7%9A%84%E5%AE%89%E5%85%A8%E6%80%A7"><span class="nav-text">3.1 判断在T0时刻的安全性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-%E7%94%A8%E7%AE%97%E6%B3%95%E6%A3%80%E6%9F%A5"><span class="nav-text">3.2 用算法检查</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E7%A3%81%E7%9B%98%E8%B0%83%E5%BA%A6"><span class="nav-text">4.磁盘调度</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-FCFS%E5%85%88%E6%9D%A5%E5%85%88%E6%9C%8D%E5%8A%A1"><span class="nav-text">4.1 FCFS先来先服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-SSTF%E6%9C%80%E7%9F%AD%E5%AF%BB%E9%81%93%E6%97%B6%E9%97%B4%E4%BC%98%E5%85%88"><span class="nav-text">4.2 SSTF最短寻道时间优先</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-SCAN%E6%89%AB%E6%8F%8F%E7%AE%97%E6%B3%95"><span class="nav-text">4.3 SCAN扫描算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-4-C-SCAN%E5%BE%AA%E7%8E%AF%E6%89%AB%E6%8F%8F%E7%AE%97%E6%B3%95"><span class="nav-text">4.4 C-SCAN循环扫描算法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6"><span class="nav-text">5.进程调度</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-FCFS%E5%85%88%E6%9D%A5%E5%85%88%E6%9C%8D%E5%8A%A1"><span class="nav-text">5.1 FCFS先来先服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-SJF%E7%9F%AD%E4%BD%9C%E4%B8%9A%E4%BC%98%E5%85%88%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95%EF%BC%88%E9%9D%9E%E6%8A%A2%E5%8D%A0%EF%BC%89"><span class="nav-text">5.2 SJF短作业优先调度算法（非抢占）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-1-%E6%8A%A2%E5%8D%A0"><span class="nav-text">5.2.1 抢占</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-3-HRRN%E9%AB%98%E5%93%8D%E5%BA%94%E6%AF%94%E4%BC%98%E5%85%88%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95%EF%BC%88%E9%9D%9E%E6%8A%A2%E5%8D%A0%EF%BC%89"><span class="nav-text">5.3 HRRN高响应比优先调度算法（非抢占）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-%E6%9C%89%E6%95%88%E8%AE%BF%E9%97%AE%E6%97%B6%E9%97%B4"><span class="nav-text">6.有效访问时间</span></a></li></ol>
+
+    </div>
+</div>
+        </div>
+    
+</div>
+
+
+
+                
+
+            </div>
+            
+            
+
+        </div>
+
+        <div class="main-content-footer">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2023&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">Lynn</a>
+        </div>
+        
+            <script data-swup-reload-script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv" class="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv" class="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv" class="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            <span class="powered-by-container">由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" href="https://hexo.io">Hexo</a> 驱动</span>
+                <br>
+            <span class="theme-version-container">主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.3.0</a></span>
+        </div>
+        
+        
+            <div>
+                博客已运行 <span class="odometer" id="runtime_days" ></span> 天 <span class="odometer" id="runtime_hours"></span> 小时 <span class="odometer" id="runtime_minutes"></span> 分钟 <span class="odometer" id="runtime_seconds"></span> 秒
+            </div>
+        
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fa-regular fa-comments"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-side-tools-container">
+        <div class="side-tools-container">
+    <ul class="hidden-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-font-adjust-minus flex-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-expand-width flex-center">
+            <i class="fa-regular fa-expand"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-dark-light-toggle flex-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="visible-tools-list">
+        <li class="right-bottom-tools toggle-tools-list flex-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fa-solid fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa-solid fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+
+</main>
+
+
+<script src="/js/libs/Swup.min.js"></script>
+
+<script src="/js/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/libs/SwupScrollPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+        ],
+        containers: ["#swup"],
+    });
+
+    swup.on("pageView", () => {
+        Global.refresh();
+    });
+
+    // if (document.readyState === "complete") {
+    //
+    // } else {
+    //     document.addEventListener("DOMContentLoaded", () => init());
+    // }
+</script>
+
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/layouts/navbarShrink.js"></script>
+
+<script src="/js/tools/scrollTopBottom.js"></script>
+
+<script src="/js/tools/lightDarkSwitch.js"></script>
+
+<script src="/js/layouts/categoryList.js"></script>
+
+
+
+    
+<script src="/js/tools/localSearch.js"></script>
+
+
+
+
+    
+<script src="/js/tools/codeBlock.js"></script>
+
+
+
+
+    
+<script src="/js/layouts/lazyload.js"></script>
+
+
+
+
+    
+<script src="/js/tools/runtime.js"></script>
+
+    
+<script src="/js/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/libs/Typed.min.js"></script>
+
+  
+<script src="/js/plugins/typed.js"></script>
+
+
+
+
+
+
+
+<div class="post-scripts" data-swup-reload-script>
+    
+        
+<script src="/js/tools/tocToggle.js"></script>
+
+<script src="/js/layouts/toc.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/plugins/tabs.js"></script>
+
+    
+</div>
+
+
+</body>
+</html>

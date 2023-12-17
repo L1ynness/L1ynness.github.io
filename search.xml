@@ -4284,4 +4284,99 @@
         <tag>软考</tag>
       </tags>
   </entry>
+  <entry>
+    <title>操作系统大题复习</title>
+    <url>/2023/12/17/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%A7%E9%A2%98%E5%A4%8D%E4%B9%A0/</url>
+    <content><![CDATA[<h1 id="1-缺页问题"><a href="#1-缺页问题" class="headerlink" title="1.缺页问题"></a>1.缺页问题</h1><h2 id="1-1-FIFO先进先出"><a href="#1-1-FIFO先进先出" class="headerlink" title="1.1 FIFO先进先出"></a>1.1 FIFO先进先出</h2><p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217150709846.png" alt="image-20231217150709846"></p>
+<p>开局四缺一</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217150759760.png" alt="image-20231217150759760"></p>
+<p>此时到5，比长度，谁长替换谁</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217150913957.png" alt="image-20231217150913957"></p>
+<p>此时还是缺页，因为没找到5；同理接下来2最长，将2换成1，缺页；</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217151040463.png" alt="image-20231217151040463"></p>
+<p>同理将最长的3换成4，因为4在前面的5134里面，所以不缺页，5134照抄</p>
+<p>最终，结果如下：</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217151331190.png" alt="image-20231217151331190"></p>
+<p>缺页率：5&#x2F;6</p>
+<h2 id="1-2-OPT最佳置换算法"><a href="#1-2-OPT最佳置换算法" class="headerlink" title="1.2 OPT最佳置换算法"></a>1.2 OPT最佳置换算法</h2><p>被淘汰的页面是在未来最长时间内不再被访问的页面</p>
+<p>开局四缺一</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217151526667.png" alt="image-20231217151526667"></p>
+<p>对于5来说，5后面的就是未来的，<strong>被淘汰的页面将是在未来的最长时间内不再被访问的页面</strong></p>
+<p>现在1234数字里哪个数字离得最远</p>
+<p>此时替换掉3，以此类推</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217152523372.png" alt="image-20231217152523372"></p>
+<p>最后缺页率为1&#x2F;2</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217152825815.png" alt="image-20231217152825815"></p>
+<h2 id="1-3-LRU最近最少使用"><a href="#1-3-LRU最近最少使用" class="headerlink" title="1.3 LRU最近最少使用"></a>1.3 LRU最近最少使用</h2><p>替换最久未使用</p>
+<p>开局四缺一</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217152948906.png" alt="image-20231217152948906"></p>
+<p>因为1最久没使用（离得最远），所以替换1</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217153052923.png" alt="image-20231217153052923"></p>
+<p>变成</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217153303897-170279838508519.png" alt="image-20231217153303897"></p>
+<p>因为145都有，所以替换掉3</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217153725059.png" alt="image-20231217153725059"></p>
+<p>变成</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217153809202.png" alt="image-20231217153809202"></p>
+<p>3替换5，不缺页；5替换1，缺页，最后为</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217153908623.png" alt="image-20231217153908623"></p>
+<h1 id="2-计算物理地址"><a href="#2-计算物理地址" class="headerlink" title="2.计算物理地址"></a>2.计算物理地址</h1><p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217154118421.png" alt="image-20231217154118421"></p>
+<p>（1）求页号</p>
+<p>页号&#x3D;逻辑地址 % 每页字节数；页号为2</p>
+<p><strong>求余</strong></p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217154343096.png" alt="image-20231217154343096"></p>
+<p>（2）对页表</p>
+<p>页号为2，对应的块号就是6</p>
+<p>（3）算地址</p>
+<p>块长就是每页字节数</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217154456058.png" alt="image-20231217154456058"></p>
+<h1 id="3-银行家算法"><a href="#3-银行家算法" class="headerlink" title="3.银行家算法"></a>3.银行家算法</h1><p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217155307541.png" alt="image-20231217155307541"></p>
+<h2 id="3-1-判断在T0时刻的安全性"><a href="#3-1-判断在T0时刻的安全性" class="headerlink" title="3.1 判断在T0时刻的安全性"></a>3.1 判断在T0时刻的安全性</h2><p>解决方案：</p>
+<p>因为Available为332，所以当前所剩资源（Work）为332</p>
+<p>work+allocation：为计算机处理完当前进程后所剩资源</p>
+<p>观察Need，哪个满足332，就填哪个，进程P1和P3都可以，先写哪个都行</p>
+<p>因为Need &lt; work+allocation，所以P1</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217160025430.png" alt="image-20231217160025430"></p>
+<p>接下来是P3和P4</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217160135658.png" alt="image-20231217160135658"></p>
+<p>接下来，P2和P0都可以，最后为</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217160253417.png" alt="image-20231217160253417"></p>
+<p>所以可以安全执行，进程序列为P1,P3,P4,P2,P0</p>
+<p>因为各种资源的数量是10,5,7，如果最后一样则没有做错。</p>
+<h2 id="3-2-用算法检查"><a href="#3-2-用算法检查" class="headerlink" title="3.2 用算法检查"></a>3.2 用算法检查</h2><p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217160447828.png" alt="image-20231217160447828"></p>
+<p>因为Request为（1,0,2），所以Allocation要加上Request，Available要减去Request，Need要减去Request</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217161713754.png" alt="image-20231217161713754"></p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217161910539.png" alt="image-20231217161910539"></p>
+<h1 id="4-磁盘调度"><a href="#4-磁盘调度" class="headerlink" title="4.磁盘调度"></a>4.磁盘调度</h1><p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217162116460-170280129719336.png" alt="image-20231217162116460"></p>
+<h2 id="4-1-FCFS先来先服务"><a href="#4-1-FCFS先来先服务" class="headerlink" title="4.1 FCFS先来先服务"></a>4.1 FCFS先来先服务</h2><p>按时间顺序到达</p>
+<p>先写出磁头移动顺序：</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217162246719.png" alt="image-20231217162246719"></p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217162313294.png" alt="image-20231217162313294"></p>
+<h2 id="4-2-SSTF最短寻道时间优先"><a href="#4-2-SSTF最短寻道时间优先" class="headerlink" title="4.2 SSTF最短寻道时间优先"></a>4.2 SSTF最短寻道时间优先</h2><p>先对数字排序</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217162404620.png" alt="image-20231217162404620"></p>
+<p>从90开始，离哪个近走哪个</p>
+<h2 id="4-3-SCAN扫描算法"><a href="#4-3-SCAN扫描算法" class="headerlink" title="4.3 SCAN扫描算法"></a>4.3 SCAN扫描算法</h2><p>向左向右</p>
+<p>  <img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217162728820.png" alt="image-20231217162728820"></p>
+<h2 id="4-4-C-SCAN循环扫描算法"><a href="#4-4-C-SCAN循环扫描算法" class="headerlink" title="4.4 C-SCAN循环扫描算法"></a>4.4 C-SCAN循环扫描算法</h2><p>向左向右</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217162833387.png" alt="image-20231217162833387"></p>
+<h1 id="5-进程调度"><a href="#5-进程调度" class="headerlink" title="5.进程调度"></a>5.进程调度</h1><p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217170533313.png" alt="image-20231217170533313"></p>
+<h2 id="5-1-FCFS先来先服务"><a href="#5-1-FCFS先来先服务" class="headerlink" title="5.1 FCFS先来先服务"></a>5.1 FCFS先来先服务</h2><p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217191251108.png" alt="image-20231217191251108"></p>
+<p>等待时间&#x3D;开始时间-到达时间；</p>
+<p>周转时间&#x3D;结束时间-到达时间；</p>
+<p>平均等待时间&#x3D;等待时间&#x2F;进程数量；</p>
+<p>平均周转时间&#x3D;周转时间&#x2F;进程数量；</p>
+<p>带权周转时间&#x3D;周转时间&#x2F;执行时间；</p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217191113772.png" alt="image-20231217191113772"></p>
+<h2 id="5-2-SJF短作业优先调度算法（非抢占）"><a href="#5-2-SJF短作业优先调度算法（非抢占）" class="headerlink" title="5.2 SJF短作业优先调度算法（非抢占）"></a>5.2 SJF短作业优先调度算法（非抢占）</h2><p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217191516133.png" alt="image-20231217191516133"></p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217191556633.png" alt="image-20231217191556633"></p>
+<h3 id="5-2-1-抢占"><a href="#5-2-1-抢占" class="headerlink" title="5.2.1 抢占"></a>5.2.1 抢占</h3><p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217191849889.png" alt="image-20231217191849889"></p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217191905314.png" alt="image-20231217191905314"></p>
+<h2 id="5-3-HRRN高响应比优先调度算法（非抢占）"><a href="#5-3-HRRN高响应比优先调度算法（非抢占）" class="headerlink" title="5.3 HRRN高响应比优先调度算法（非抢占）"></a>5.3 HRRN高响应比优先调度算法（非抢占）</h2><p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217192710942.png" alt="image-20231217192710942"></p>
+<p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217192721953.png" alt="image-20231217192721953"></p>
+<h1 id="6-有效访问时间"><a href="#6-有效访问时间" class="headerlink" title="6.有效访问时间"></a>6.有效访问时间</h1><p><img lazyload src="/images/loading.svg" data-src="/../Resources/image-20231217192752793.png" alt="image-20231217192752793"></p>
+]]></content>
+      <tags>
+        <tag>操作系统复习</tag>
+      </tags>
+  </entry>
 </search>
